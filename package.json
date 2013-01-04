@@ -1,0 +1,29 @@
+{
+  "name": "an4mahcy",
+  "version": "0.0.1",
+  "author": "Dylan Clement",
+  "description": "Information Management ++",
+  "main": "./server.js",  
+  "dependencies" : {
+    "express": "3.0.0",
+    "less-middleware": "*",
+    "jade": "*",
+    "winston": "*",
+    "neo4j": "*"
+  },
+  "noAnalyze": true,
+  "license": "Apache",
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "coffee-script": "*"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "make test",
+    "migrate": "make migrate"
+  },
+  "engines": {
+    "node": ">=0.6.14"
+  }
+}

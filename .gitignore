@@ -1,0 +1,3 @@
+*.log
+*.logs
+node_modules
