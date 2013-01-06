@@ -2,34 +2,27 @@ neo4j = require 'neo4j'
 
 module.exports = class GraphDB
   constructor: (url, @logger, dbname) ->
-    @db = neo4j.GraphDatabase url
+    @db = new neo4j.GraphDatabase url
   
-  open: (callback) -> 
-    return callback err
-
-  #close: -> 
-
-  command: (cmd, params, callback) ->
+  command: (cmd, params, callback) =>
     @db.execute cmd, params, callback
 
-  #clear: (callback) ->
-
-  getObject: (id, callback) ->
+  getObject: (id, callback) =>
     @db.getNodeById id, (err, results) ->
       if err
         return null
       else
         callback err, results
 
-  createObject: (obj, callback) ->
+  createObject: (obj, callback) =>
     node = @db.createNode obj
     node.save callback
     @logger.info "Created vertex", name: obj.name
 
-  createRelation: (obj, sub, relationship, callback) ->
-    rel = obj.createRelationshipTo sub, relationship, access_count : 1 
-    rel.save callback
-    @logger.info "Created edge", name: relationship.name
+  createRelation: (obj, sub, relationship, callback) =>
+    obj.createRelationshipTo sub, relationship, access_count : 1, (err, rel) =>
+      rel.save callback
+      @logger.info "Created edge", name: relationship
 
   getOutRelations: (node, callback) ->
     node.outgoing callback
@@ -37,10 +30,10 @@ module.exports = class GraphDB
   getInRelations: (node, callback) ->
     node.incoming callback
 
-  getAllObjects: (callback) ->
-    @command 'select from OGraphVertex', callback
+  getAllObjects: (callback) =>
+    @db.execute 'select from OGraphVertex', callback
     
-  getAllObjects: (callback) ->
+  getAllObjects: (callback) =>
     @db.execute 'g.V', callback
 
   updateAccessCount: (obj, callback) ->
