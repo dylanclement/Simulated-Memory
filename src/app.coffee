@@ -47,6 +47,7 @@ app.configure 'development', ->
 # set up routes
 app.get '/', routes.index
 app.post '/relationship', setDb, routes.relationship
+app.get '/clearDB', setDb, routes.clearDB
 
 # start listening
 app.listen app.get('port'), ->

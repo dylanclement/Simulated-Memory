@@ -21,3 +21,10 @@ exports.relationship = (req, res) ->
           console.log err
           return
         res.send 'saved object #{obj} -> #{rel} #{sub}'
+
+# [get]
+# Clears the database
+exports.clearDB = (req, res) ->
+  body = req.body
+  db = req.db
+  db.clear()
