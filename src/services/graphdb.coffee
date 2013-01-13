@@ -4,6 +4,9 @@ module.exports = class GraphDB
   constructor: (url, @logger, dbname) ->
     @db = new neo4j.GraphDatabase url
   
+  OBJ_INDEX_NAME: 'objects'
+  REL_INDEX_NAME: 'relationships'
+
   command: (cmd, params, callback) =>
     @db.execute cmd, params, callback
 
@@ -14,67 +17,69 @@ module.exports = class GraphDB
       'MATCH n-[r?]-()',
       'DELETE n, r'
     ].join '\n'
-    @db.query query, {}, (err, results) ->
+    @db.query query, nodes: '*', (err, results) ->
       throw err if err
 
-  getObject: (id, callback) =>
-    @db.getNodeById id, (err, results) ->
-      if err
-        return null
-      else
-        callback err, results
-
-  createObject: (obj, callback) =>
+  getObject: (name, callback) =>
     # see if the object exists
-    @db.getIndexedNode 'object_auto_index', 'name', obj.name, (err, node) =>
-      if node
-        # object exists so increment the access count
-        @logger.info "Returning object #{obj.name}"
-        node.access_count += 1
-        node.save callback
-      else if err and err.message.exception == 'NotFoundException'
-        # object doesn't exist so create it
-        node = @db.createNode obj
-        node.save callback
-        # TODO! could potentially insert a duplicate object before we've created an index
-        node.index 'object_auto_index', 'name', obj.name
-        @logger.info "Created object #{obj.name}"
+    @db.getIndexedNode OBJ_INDEX_NAME, 'name', name, (err, node) =>
+      if (err and err.message.exception == 'NotFoundException') or (!err and !node)
+        # object doesn't
+        callback null, null
+        @logger.info "Node #{name} doesn't exist"
       else if err
         @logger.error err.exception.message, err
         throw err 
 
+  createObject: (obj, callback) =>
+    # see if the object exists
+    @db.getIndexedNode OBJ_INDEX_NAME, 'name', obj.name, (err, node) =>
+      if (err and err.message.exception == 'NotFoundException') or (!err and !node)
+        # object doesn't exist so create it
+        node = @db.createNode obj
+        node.save (err, savedNode) ->
+          # TODO! could potentially insert a duplicate object before we've created an index
+          savedNode.index OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) => 
+            callback null, savedNode
+        @logger.info "Created object #{obj.name}"
+      else if err
+        @logger.error err.exception.message, err
+        throw err 
+      else if node
+        # object exists so increment the access count
+        @logger.info "Returning object #{obj.name}"
+        node.data.access_count += 1
+        node.save callback
+
 
   createRelation: (obj, sub, relationship, callback) =>
-    relName = "#{obj.name}->#{relationship}->#{sub.name}"
+    relName = "#{obj.data.name}->#{relationship}->#{sub.data.name}"
     # see if the relationship exists, if it does increment the access count, otherwise create it
-    @db.getIndexedRelationship 'relationship_auto_index', relationship, relName, (err, rel) =>
-      if rel
+    @db.getIndexedRelationship REL_INDEX_NAME, relationship, relName, (err, rel) =>
+      if (err and err.message.exception == 'NotFoundException') or (!err and !rel)
+        # object doesn't exist so create it
+        obj.createRelationshipTo sub, relationship, access_count : 1, (err, rel) =>
+          rel.save (err, savedRel) ->
+            # todo could potentially insert a duplicate relationship before we've created an index
+            savedRel.index REL_INDEX_NAME, relationship, relName, (err, indexedRel) =>
+              callback null, savedRel
+          @logger.info "Created edge #{relName}"
+      else if err
+        @logger.error err.exception.message, err
+        throw err
+      else if rel
         @logger.info "Relationship #{relName} exists, incrementing access count."
         rel.data.access_count += 1
         rel.save callback
-      else
-        obj.createRelationshipTo sub, relationship, access_count : 1, (err, rel) =>
-          rel.save callback
-          # todo could potentially insert a duplicate relationship before we've created an index
-          rel.index 'relationship_auto_index', relationship, relName
-          @logger.info "Created edge #{relName}"
-      if err
-        @logger.error err.exception.message, err
-        throw err
 
   getOutRelations: (node, callback) ->
     node.outgoing callback
 
   getInRelations: (node, callback) ->
     node.incoming callback
-
-  getAllObjects: (callback) =>
-    @db.execute 'select from OGraphVertex', callback
     
   getAllObjects: (callback) =>
     @db.execute 'g.V', callback
 
-  updateAccessCount: (obj, callback) ->
-    node.data.access_count += 1
-    node.save callback
+
       

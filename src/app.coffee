@@ -41,11 +41,12 @@ app.configure ->
   app.use app.router
   app.use require('less-middleware')(src: "#{__dirname}/public" )
   app.use express.static(path.join __dirname, 'public')
-app.configure 'development', ->
-  app.use express.errorHandler()
+app.configure 'development', ->  
+  app.use express.errorHandler( dumpExceptions: true, showStack: true)
 
 # set up routes
 app.get '/', routes.index
+app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
 app.get '/clearDB', setDb, routes.clearDB
 
