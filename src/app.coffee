@@ -49,6 +49,7 @@ app.get '/', routes.index
 app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
 app.get '/clearDB', setDb, routes.clearDB
+app.get '/conclusion/is_a_category', setDb, routes.isCategory
 
 # start listening
 app.listen app.get('port'), ->

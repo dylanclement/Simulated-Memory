@@ -22,7 +22,7 @@ module.exports = class GraphDB
 
   getObject: (name, callback) =>
     # see if the object exists
-    @db.getIndexedNode OBJ_INDEX_NAME, 'name', name, (err, node) =>
+    @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) =>
       if (err and err.message.exception == 'NotFoundException') or (!err and !node)
         # object doesn't
         callback null, null
@@ -33,13 +33,13 @@ module.exports = class GraphDB
 
   createObject: (obj, callback) =>
     # see if the object exists
-    @db.getIndexedNode OBJ_INDEX_NAME, 'name', obj.name, (err, node) =>
+    @db.getIndexedNode @OBJ_INDEX_NAME, 'name', obj.name, (err, node) =>
       if (err and err.message.exception == 'NotFoundException') or (!err and !node)
         # object doesn't exist so create it
         node = @db.createNode obj
-        node.save (err, savedNode) ->
+        node.save (err, savedNode) =>
           # TODO! could potentially insert a duplicate object before we've created an index
-          savedNode.index OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) => 
+          savedNode.index @OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) => 
             callback null, savedNode
         @logger.info "Created object #{obj.name}"
       else if err
@@ -51,17 +51,16 @@ module.exports = class GraphDB
         node.data.access_count += 1
         node.save callback
 
-
   createRelation: (obj, sub, relationship, callback) =>
     relName = "#{obj.data.name}->#{relationship}->#{sub.data.name}"
     # see if the relationship exists, if it does increment the access count, otherwise create it
-    @db.getIndexedRelationship REL_INDEX_NAME, relationship, relName, (err, rel) =>
+    @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) =>
       if (err and err.message.exception == 'NotFoundException') or (!err and !rel)
         # object doesn't exist so create it
-        obj.createRelationshipTo sub, relationship, access_count : 1, (err, rel) =>
-          rel.save (err, savedRel) ->
+        obj.createRelationshipTo sub, relationship, access_count : 0, (err, rel) =>
+          rel.save (err, savedRel) =>
             # todo could potentially insert a duplicate relationship before we've created an index
-            savedRel.index REL_INDEX_NAME, relationship, relName, (err, indexedRel) =>
+            savedRel.index @REL_INDEX_NAME, relationship, relName, (err, indexedRel) =>
               callback null, savedRel
           @logger.info "Created edge #{relName}"
       else if err
