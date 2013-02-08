@@ -38,8 +38,12 @@ exports.clearDB = (req, res) ->
   db.clear()
   res.send 'Cleared database.'
 
+# [get]
+# gets a grouped collection
 exports.isCategory = (req, res) ->
   body = req.body
   db = req.db
-  db.command "g.V.out(out_name).name.groupCount().cap", out_name : 'is_a', (err, results) ->
+  query = ['g.V.out(out_name).name.groupCount().cap'].join '\n'
+  db.gremlin query, out_name : 'is_a', (err, results) ->
+    console.log err, results
     res.send results

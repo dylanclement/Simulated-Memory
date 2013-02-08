@@ -7,7 +7,7 @@ module.exports = class GraphDB
   OBJ_INDEX_NAME: 'objects'
   REL_INDEX_NAME: 'relationships'
 
-  command: (cmd, params, callback) =>
+  gremlin: (cmd, params, callback) =>
     @db.execute cmd, params, callback
 
   clear: =>
@@ -78,7 +78,11 @@ module.exports = class GraphDB
     node.incoming callback
     
   getAllObjects: (callback) =>
-    @db.execute 'g.V', callback
-
-
-      
+    query = [
+      'START n=node(*)',
+      'RETURN n'
+    ].join '\n'
+    @db.query query, nodes: '*', (err, results) ->
+      if err then throw err
+      callback null, results.map (result) ->
+        result['n'].data.name
