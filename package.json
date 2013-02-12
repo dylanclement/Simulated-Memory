@@ -1,22 +1,23 @@
 {
-  "name": "an4mahcy",
+  "name": "in4mahcy",
   "version": "0.0.1",
   "author": "Dylan Clement",
   "description": "Information Management ++",
-  "main": "./server.js",  
+  "main": "./server.js",
   "dependencies" : {
-    "express": "3.0.0",
-    "less-middleware": "*",
-    "jade": "*",
-    "winston": "*",
-    "neo4j": "*"
+    "coffee-script": "1.4.x",
+    "express": "3.0.x",
+    "less-middleware": "0.x.x",
+    "jade": "0.x.x",
+    "winston": "0.6.x",
+    "neo4j": "0.2.x",
+    "npm" : "1.2.x"
   },
   "noAnalyze": true,
   "license": "Apache",
   "devDependencies": {
-    "mocha": "*",
-    "chai": "*",
-    "coffee-script": "*"
+    "mocha": "1.8.x",
+    "chai": "1.5.x"
   },
   "scripts": {
     "start": "node server.js",
@@ -25,6 +26,7 @@
     "migrate": "make migrate"
   },
   "engines": {
-    "node": ">=0.6.14"
+    "node": "0.8.x",
+    "npm":  "1.2.x"
   }
 }
