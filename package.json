@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "debug": "node --debug server.js",
     "test": "make test",
     "migrate": "make migrate"
   },
