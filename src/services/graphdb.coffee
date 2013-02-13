@@ -1,5 +1,4 @@
 neo4j = require 'neo4j'
-moment = require 'moment'
 
 module.exports = class GraphDB
 
@@ -98,14 +97,15 @@ module.exports = class GraphDB
   ###
   Shorthand for creating a obj-rel-sub
   ###
-  create: (objName, subName, relName) =>
+  create: (objName, relName, subName, callback) =>
+    console.log "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
       if err then throw err
       @createObject { name: subName, access_count: 0 }, (err, sub) =>
         if err then throw err
         @createRelation obj, sub, relName, (err, rel) =>
           if err then throw err
-          res.send 'saved object #{obj} -> #{rel} #{sub}'
+          callback null, obj, rel, sub if callback
 
 
   ###
@@ -130,5 +130,18 @@ module.exports = class GraphDB
     ].join '\n'
     @db.query query, nodes: '*', (err, results) ->
       if err then throw err
-      callback null, results.map (result) ->
-        "name = #{result['n'].data.name}, access_count = #{result['n'].data.access_count}, created_at = #{moment(result['n'].data.created_at).calendar()}"
+      callback null, results
+
+  ###
+  Gets all relationships stored in the db
+  ###
+  getAllRelationships: (callback) =>
+    query = [
+      'START n=node(*)',
+      'MATCH n-[r]->m',
+      'RETURN n.name as obj, type(r) as rel, m.name as sub'].join '\n'
+    @db.query query, {}, (err, results) ->
+      if err then throw err
+      callback null, results
+
+

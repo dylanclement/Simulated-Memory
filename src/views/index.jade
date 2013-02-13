@@ -8,6 +8,10 @@ block content
     input(type="text", name="Rel", placeholder="Relationship…")
     input(type="text", name="Sub", placeholder="Subject…")
     input.btn.success(type="submit", value="submit")
-  a.btn(href='/conclusion/is_a_category') Is Category
-  a.btn(href='/conclusion/popular_relationships') Popular relationships
-  a.btn(href='/clearDB') Clear DB
+  .row
+    a.span1.btn(href='/conclusion/is_a_category') Categories
+    a.span2.btn(href='/conclusion/popular_relationships') Popular relationships
+  .row
+    a.span1.btn(href='/relationships/save') Save DB
+    a.span1.btn(href='/relationships/load') Load DB
+    a.span1.btn(href='/clearDB') Clear DB
