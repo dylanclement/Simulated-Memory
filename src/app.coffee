@@ -21,10 +21,10 @@ logger = new winston.Logger
 logger.on 'error', (err) -> console.log "Unhandled error occured, #{err}"
 
 # Connect to DB's
-db = new graphdb 'http://localhost:7474', logger
+db = new graphdb process.env.NEO4J_URL || 'http://localhost:7474', logger
 
 # middleware method to set the database
-setDb = (req, res, next) -> 
+setDb = (req, res, next) ->
   req.db = db;
   next()
 
@@ -41,7 +41,7 @@ app.configure ->
   app.use app.router
   app.use require('less-middleware')(src: "#{__dirname}/public" )
   app.use express.static(path.join __dirname, 'public')
-app.configure 'development', ->  
+app.configure 'development', ->
   app.use express.errorHandler( dumpExceptions: true, showStack: true)
 
 # set up routes
