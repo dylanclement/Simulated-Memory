@@ -1,0 +1,12 @@
+[
+  {
+    "obj": "tiger",
+    "rel": "is_a",
+    "sub": "carnivore"
+  },
+  {
+    "obj": "shark",
+    "rel": "is_a",
+    "sub": "carnivore"
+  }
+]
