@@ -1,3 +1,4 @@
+fs = require 'fs'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
@@ -28,7 +29,8 @@ exports.relationships = (req, res) ->
   body = req.body
   db = req.db
   db.getAllObjects (err, results) ->
-    res.send results
+    res.send results.map (result) ->
+        "name = #{result['n'].data.name}, access_count = #{result['n'].data.access_count}, created_at = #{moment(result['n'].data.created_at).calendar()}"
 
 # [get]
 # Clears the database
@@ -43,8 +45,10 @@ exports.clearDB = (req, res) ->
 exports.isCategory = (req, res) ->
   body = req.body
   db = req.db
-  query = ['g.V.out(out_name).name.groupCount().cap'].join '\n'
-  db.gremlin query, out_name : 'is_a', (err, results) ->
+  query = ['START n=node(*)',
+    'MATCH n-[:is_a]->m',
+    'RETURN m.name, count(m)'].join '\n'
+  db.cypher query, {}, (err, results) ->
     console.log err, results
     res.send results
 
@@ -57,4 +61,22 @@ exports.getRelationshipsOrderedByUse = (req, res) ->
     console.log err, results
     res.send results
 
+exports.saveToFile = (req, res) ->
+  body = req.body
+  db = req.db
+  db.getAllRelationships (err, results) ->
+    resJSON = JSON.stringify(results)
+    fs.writeFile "data/relations.json", resJSON, (err) ->
+      if err then throw err
+      res.send resJSON
+
+exports.loadFromFile = (req, res) ->
+  body = req.body
+  db = req.db
+  fs.readFile "data/relations.json", 'utf8', (err, resJSON) ->
+    if err then throw err
+    results = JSON.parse resJSON
+    res.send results
+    for ors in results
+      db.create ors.obj, ors.rel, ors.sub
 

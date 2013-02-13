@@ -7,6 +7,7 @@
   "dependencies" : {
     "coffee-script": "1.4.x",
     "express": "3.0.x",
+    "fs" : "*",
     "less-middleware": "0.x.x",
     "jade": "0.x.x",
     "winston": "0.6.x",
