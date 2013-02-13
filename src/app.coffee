@@ -50,7 +50,7 @@ app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
 app.get '/clearDB', setDb, routes.clearDB
 app.get '/conclusion/is_a_category', setDb, routes.isCategory
+app.get '/conclusion/popular_relationships', setDb, routes.getRelationshipsOrderedByUse
 
 # start listening
-app.listen app.get('port'), ->
-  logger.info "server listening on http://localhost:#{app.get 'port'}."
+app.listen app.get('port'), ->  logger.info "server listening on http://localhost:#{app.get 'port'}."

@@ -48,6 +48,8 @@ exports.isCategory = (req, res) ->
     console.log err, results
     res.send results
 
+# [get]
+# gets relationships ordered by use
 exports.getRelationshipsOrderedByUse = (req, res) ->
   db = req.db
   query = 'START n=node(*) MATCH (n)-[r]->() RETURN type(r) as name, count(*) as num_uses'

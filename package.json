@@ -11,7 +11,8 @@
     "jade": "0.x.x",
     "winston": "0.6.x",
     "neo4j": "0.2.x",
-    "npm" : "1.2.x"
+    "npm" : "1.2.x",
+    "moment" : "2.0.x"
   },
   "noAnalyze": true,
   "license": "Apache",
