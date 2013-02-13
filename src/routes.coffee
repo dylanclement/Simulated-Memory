@@ -1,4 +1,5 @@
 fs = require 'fs'
+moment = require 'moment'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
@@ -9,19 +10,8 @@ exports.index = (req, res) ->
 exports.relationship = (req, res) ->
   body = req.body
   db = req.db
-  db.createObject { name: body.Obj, access_count: 0 }, (err, obj) ->
-    if err
-      console.log err
-      return
-    db.createObject { name: body.Sub, access_count: 0 }, (err, sub) ->
-      if err
-        console.log err
-        return
-      db.createRelation obj, sub, body.Rel, (err, rel) ->
-        if err
-          console.log err
-          return
-        res.send 'saved object #{obj} -> #{rel} #{sub}'
+  db.create body.Obj, body.Rel, body.Sub, (err, obj, rel, sub) ->
+    res.send "saved object #{obj.data.name} -> #{rel.database} -> #{sub.data.name}"
 
 # [push]
 # Save a relationship
