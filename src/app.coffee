@@ -24,7 +24,7 @@ logger.on 'error', (err) -> console.log "Unhandled error occured, #{err}"
 db = new graphdb 'http://localhost:7474', logger
 
 # middleware method to set the database
-setDb = (req, res, next) -> 
+setDb = (req, res, next) ->
   req.db = db;
   next()
 
@@ -41,7 +41,7 @@ app.configure ->
   app.use app.router
   app.use require('less-middleware')(src: "#{__dirname}/public" )
   app.use express.static(path.join __dirname, 'public')
-app.configure 'development', ->  
+app.configure 'development', ->
   app.use express.errorHandler( dumpExceptions: true, showStack: true)
 
 # set up routes
@@ -50,7 +50,8 @@ app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
 app.get '/clearDB', setDb, routes.clearDB
 app.get '/conclusion/is_a_category', setDb, routes.isCategory
+app.get '/conclusion/popular_relationships', setDb, routes.getRelationshipsOrderedByUse
 
 # start listening
 app.listen app.get('port'), ->
-  logger.info "server listening on http://localhost:#{app.get 'port'}."    
+  logger.info "server listening on http://localhost:#{app.get 'port'}."

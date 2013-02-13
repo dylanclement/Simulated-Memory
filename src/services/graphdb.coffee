@@ -3,12 +3,15 @@ neo4j = require 'neo4j'
 module.exports = class GraphDB
   constructor: (url, @logger, dbname) ->
     @db = new neo4j.GraphDatabase url
-  
+
   OBJ_INDEX_NAME: 'objects'
   REL_INDEX_NAME: 'relationships'
 
   gremlin: (cmd, params, callback) =>
     @db.execute cmd, params, callback
+
+  cypher: (cmd, params, callback) =>
+    @db.query cmd, params, callback
 
   clear: =>
     @logger.info 'Clearing database'
@@ -29,7 +32,7 @@ module.exports = class GraphDB
         @logger.info "Node #{name} doesn't exist"
       else if err
         @logger.error err.exception.message, err
-        throw err 
+        throw err
 
   createObject: (obj, callback) =>
     # see if the object exists
@@ -39,12 +42,12 @@ module.exports = class GraphDB
         node = @db.createNode obj
         node.save (err, savedNode) =>
           # TODO! could potentially insert a duplicate object before we've created an index
-          savedNode.index @OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) => 
+          savedNode.index @OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) =>
             callback null, savedNode
         @logger.info "Created object #{obj.name}"
       else if err
         @logger.error err.exception.message, err
-        throw err 
+        throw err
       else if node
         # object exists so increment the access count
         @logger.info "Returning object #{obj.name}"
@@ -76,7 +79,7 @@ module.exports = class GraphDB
 
   getInRelations: (node, callback) ->
     node.incoming callback
-    
+
   getAllObjects: (callback) =>
     query = [
       'START n=node(*)',

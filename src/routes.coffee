@@ -47,3 +47,12 @@ exports.isCategory = (req, res) ->
   db.gremlin query, out_name : 'is_a', (err, results) ->
     console.log err, results
     res.send results
+
+exports.getRelationshipsOrderedByUse = (req, res) ->
+  db = req.db
+  query = 'START n=node(*) MATCH (n)-[r]->() RETURN type(r) as name, count(*) as num_uses'
+  db.cypher query, {}, (err, results) ->
+    console.log err, results
+    res.send results
+
+
