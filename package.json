@@ -5,8 +5,8 @@
   "description": "Information Management ++",
   "main": "./server.js",
   "dependencies" : {
-    "coffee-script": "1.4.x",
-    "express": "3.0.x",
+    "coffee-script": "1.x.x",
+    "express": "3.x.x",
     "less-middleware": "0.x.x",
     "jade": "0.x.x",
     "winston": "0.6.x",
@@ -17,13 +17,15 @@
   "license": "Apache",
   "devDependencies": {
     "mocha": "1.8.x",
-    "chai": "1.5.x"
+    "chai": "1.5.x",
+    "supervisor": ">= 0.5.0"
   },
   "scripts": {
     "start": "node server.js",
     "debug": "node --debug server.js",
     "test": "make test",
-    "migrate": "make migrate"
+    "migrate": "make migrate",
+    "watch": "supervisor -e \"coffee|styl|jade|less|mocha\" -x node server"
   },
   "engines": {
     "node": "0.8.x",
