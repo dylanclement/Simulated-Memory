@@ -1,5 +1,6 @@
 *.log
 *.logs
+*.orig
 node_modules
 iisnode
 /logs
