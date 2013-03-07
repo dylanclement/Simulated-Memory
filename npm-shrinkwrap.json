@@ -1,0 +1,334 @@
+{
+  "name": "in4mahcy",
+  "version": "0.0.1",
+  "dependencies": {
+    "coffee-script": {
+      "version": "1.4.0"
+    },
+    "express": {
+      "version": "3.0.6",
+      "dependencies": {
+        "connect": {
+          "version": "2.7.2",
+          "dependencies": {
+            "qs": {
+              "version": "0.5.1"
+            },
+            "formidable": {
+              "version": "1.0.11"
+            },
+            "bytes": {
+              "version": "0.1.0"
+            },
+            "pause": {
+              "version": "0.0.1"
+            }
+          }
+        },
+        "commander": {
+          "version": "0.6.1"
+        },
+        "range-parser": {
+          "version": "0.0.4"
+        },
+        "mkdirp": {
+          "version": "0.3.3"
+        },
+        "cookie": {
+          "version": "0.0.5"
+        },
+        "buffer-crc32": {
+          "version": "0.1.1"
+        },
+        "fresh": {
+          "version": "0.1.0"
+        },
+        "methods": {
+          "version": "0.0.1"
+        },
+        "send": {
+          "version": "0.1.0",
+          "dependencies": {
+            "mime": {
+              "version": "1.2.6"
+            }
+          }
+        },
+        "cookie-signature": {
+          "version": "0.0.1"
+        },
+        "debug": {
+          "version": "0.7.2"
+        }
+      }
+    },
+    "less-middleware": {
+      "version": "0.1.9",
+      "dependencies": {
+        "less": {
+          "version": "1.3.3",
+          "dependencies": {
+            "ycssmin": {
+              "version": "1.0.1"
+            }
+          }
+        },
+        "mkdirp": {
+          "version": "0.3.5"
+        }
+      }
+    },
+    "jade": {
+      "version": "0.28.2",
+      "dependencies": {
+        "commander": {
+          "version": "0.6.1"
+        },
+        "mkdirp": {
+          "version": "0.3.5"
+        }
+      }
+    },
+    "winston": {
+      "version": "0.6.2",
+      "dependencies": {
+        "async": {
+          "version": "0.1.22"
+        },
+        "colors": {
+          "version": "0.6.0-1"
+        },
+        "cycle": {
+          "version": "1.0.2"
+        },
+        "eyes": {
+          "version": "0.1.8"
+        },
+        "pkginfo": {
+          "version": "0.2.3"
+        },
+        "request": {
+          "version": "2.9.203"
+        },
+        "stack-trace": {
+          "version": "0.0.6"
+        }
+      }
+    },
+    "neo4j": {
+      "version": "0.2.19",
+      "dependencies": {
+        "coffee-script": {
+          "version": "1.3.3"
+        },
+        "http-status": {
+          "version": "0.1.1"
+        },
+        "request": {
+          "version": "2.9.203"
+        },
+        "streamline": {
+          "version": "0.4.6"
+        }
+      }
+    },
+    "npm": {
+      "version": "1.2.14",
+      "dependencies": {
+        "semver": {
+          "version": "1.1.4"
+        },
+        "ini": {
+          "version": "1.1.0"
+        },
+        "slide": {
+          "version": "1.1.3"
+        },
+        "abbrev": {
+          "version": "1.0.4"
+        },
+        "graceful-fs": {
+          "version": "1.2.0"
+        },
+        "minimatch": {
+          "version": "0.2.11",
+          "dependencies": {
+            "sigmund": {
+              "version": "1.0.0"
+            }
+          }
+        },
+        "nopt": {
+          "version": "2.1.1"
+        },
+        "rimraf": {
+          "version": "2.1.4"
+        },
+        "request": {
+          "version": "2.9.203",
+          "from": "git://github.com/isaacs/request"
+        },
+        "which": {
+          "version": "1.0.5"
+        },
+        "tar": {
+          "version": "0.1.16"
+        },
+        "fstream": {
+          "version": "0.1.22"
+        },
+        "block-stream": {
+          "version": "0.0.6"
+        },
+        "inherits": {
+          "version": "1.0.0",
+          "from": "git://github.com/isaacs/inherits"
+        },
+        "mkdirp": {
+          "version": "0.3.5"
+        },
+        "read": {
+          "version": "1.0.4",
+          "dependencies": {
+            "mute-stream": {
+              "version": "0.0.3"
+            }
+          }
+        },
+        "lru-cache": {
+          "version": "2.2.2"
+        },
+        "node-gyp": {
+          "version": "0.8.5"
+        },
+        "fstream-npm": {
+          "version": "0.1.3",
+          "dependencies": {
+            "fstream-ignore": {
+              "version": "0.0.6"
+            }
+          }
+        },
+        "uid-number": {
+          "version": "0.0.3"
+        },
+        "archy": {
+          "version": "0.0.2"
+        },
+        "chownr": {
+          "version": "0.0.1"
+        },
+        "npmlog": {
+          "version": "0.0.2"
+        },
+        "ansi": {
+          "version": "0.1.2"
+        },
+        "npm-registry-client": {
+          "version": "0.2.18",
+          "dependencies": {
+            "couch-login": {
+              "version": "0.1.15"
+            }
+          }
+        },
+        "read-package-json": {
+          "version": "0.2.2"
+        },
+        "read-installed": {
+          "version": "0.1.1"
+        },
+        "glob": {
+          "version": "3.1.21"
+        },
+        "init-package-json": {
+          "version": "0.0.6",
+          "dependencies": {
+            "promzard": {
+              "version": "0.2.0"
+            }
+          }
+        },
+        "osenv": {
+          "version": "0.0.3"
+        },
+        "lockfile": {
+          "version": "0.3.0"
+        },
+        "retry": {
+          "version": "0.6.0"
+        },
+        "once": {
+          "version": "1.1.1"
+        },
+        "npmconf": {
+          "version": "0.0.23",
+          "dependencies": {
+            "config-chain": {
+              "version": "1.1.5",
+              "dependencies": {
+                "proto-list": {
+                  "version": "1.2.2"
+                }
+              }
+            }
+          }
+        },
+        "opener": {
+          "version": "1.3.0"
+        },
+        "chmodr": {
+          "version": "0.1.0"
+        }
+      }
+    },
+    "stylus": {
+      "version": "0.32.1",
+      "dependencies": {
+        "cssom": {
+          "version": "0.2.5"
+        },
+        "mkdirp": {
+          "version": "0.3.5"
+        },
+        "debug": {
+          "version": "0.7.2"
+        }
+      }
+    },
+    "chai": {
+      "version": "1.5.0"
+    },
+    "mocha": {
+      "version": "1.8.1",
+      "dependencies": {
+        "commander": {
+          "version": "0.6.1"
+        },
+        "growl": {
+          "version": "1.7.0"
+        },
+        "jade": {
+          "version": "0.26.3",
+          "dependencies": {
+            "mkdirp": {
+              "version": "0.3.0"
+            }
+          }
+        },
+        "diff": {
+          "version": "1.0.2"
+        },
+        "debug": {
+          "version": "0.7.2"
+        },
+        "mkdirp": {
+          "version": "0.3.3"
+        },
+        "ms": {
+          "version": "0.3.0"
+        }
+      }
+    }
+  }
+}
