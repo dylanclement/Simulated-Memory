@@ -98,7 +98,6 @@ module.exports = class GraphDB
   Shorthand for creating a obj-rel-sub
   ###
   create: (objName, relName, subName, callback) =>
-    console.log "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
       if err then throw err
       @createObject { name: subName, access_count: 0 }, (err, sub) =>

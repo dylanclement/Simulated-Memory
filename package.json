@@ -5,6 +5,7 @@
   "description": "Information Management ++",
   "main": "./server.js",
   "dependencies" : {
+    "async": "0.2.x",
     "coffee-script": "1.4.x",
     "express": "3.0.x",
     "fs" : "*",
