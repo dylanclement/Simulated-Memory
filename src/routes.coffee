@@ -1,5 +1,6 @@
 fs = require 'fs'
 moment = require 'moment'
+async = require 'async'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
@@ -11,7 +12,7 @@ exports.relationship = (req, res) ->
   body = req.body
   db = req.db
   db.create body.Obj, body.Rel, body.Sub, (err, obj, rel, sub) ->
-    res.send "saved object #{obj.data.name} -> #{rel.database} -> #{sub.data.name}"
+    res.send "saved object #{obj.data.name} -> #{rel.type} -> #{sub.data.name}"
 
 # [push]
 # Save a relationship
@@ -32,14 +33,13 @@ exports.clearDB = (req, res) ->
 
 # [get]
 # gets a grouped collection
-exports.isCategory = (req, res) ->
+exports.Categories = (req, res) ->
   body = req.body
   db = req.db
   query = ['START n=node(*)',
     'MATCH n-[:is_a]->m',
-    'RETURN m.name, count(m)'].join '\n'
+    'RETURN m.name as name, count(m) as num'].join '\n'
   db.cypher query, {}, (err, results) ->
-    console.log err, results
     res.send results
 
 # [get]
@@ -48,7 +48,6 @@ exports.getRelationshipsOrderedByUse = (req, res) ->
   db = req.db
   query = 'START n=node(*) MATCH (n)-[r]->() RETURN type(r) as name, count(*) as num_uses'
   db.cypher query, {}, (err, results) ->
-    console.log err, results
     res.send results
 
 exports.saveToFile = (req, res) ->
@@ -67,6 +66,11 @@ exports.loadFromFile = (req, res) ->
     if err then throw err
     results = JSON.parse resJSON
     res.send results
+    # build an array of methods to run and run them in series since we can't lock and don't want to add duplicate items
+    cbs = []
     for ors in results
-      db.create ors.obj, ors.rel, ors.sub
+      do (ors) ->
+        cbs.push (callback) ->
+          db.create ors.obj, ors.rel, ors.sub, callback
+    async.series cbs
 
