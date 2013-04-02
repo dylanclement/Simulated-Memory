@@ -11,19 +11,19 @@ module.exports = class GraphDB
   ###
   Runs a gremlin query
   ###
-  gremlin: (cmd, params, callback) =>
+  gremlin: (cmd, params, callback) ->
     @db.execute cmd, params, callback
 
   ###
   Runs a cypher query
   ###
-  cypher: (cmd, params, callback) =>
+  cypher: (cmd, params, callback) ->
     @db.query cmd, params, callback
 
   ###
   Clears all the data from the db
   ###
-  clear: =>
+  clear: ->
     @logger.info 'Clearing database'
     query = [
       'START n=node(*)',
@@ -36,7 +36,7 @@ module.exports = class GraphDB
   ###
   Gets an object from the db
   ###
-  getObject: (name, callback) =>
+  getObject: (name, callback) ->
     # see if the object exists
     @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) =>
       if (err and err.message.exception == 'NotFoundException') or (!err and !node)
@@ -50,7 +50,7 @@ module.exports = class GraphDB
   ###
   Creates an object
   ###
-  createObject: (obj, callback) =>
+  createObject: (obj, callback) ->
     # see if the object exists
     @db.getIndexedNode @OBJ_INDEX_NAME, 'name', obj.name, (err, node) =>
       if (err and err.message.exception == 'NotFoundException') or (!err and !node)
@@ -74,7 +74,7 @@ module.exports = class GraphDB
   ###
   Gets a relationship between two objects
   ###
-  createRelation: (obj, sub, relationship, callback) =>
+  createRelation: (obj, sub, relationship, callback) ->
     relName = "#{obj.data.name}->#{relationship}->#{sub.data.name}"
     # see if the relationship exists, if it does increment the access count, otherwise create it
     @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) =>
@@ -97,7 +97,7 @@ module.exports = class GraphDB
   ###
   Shorthand for creating a obj-rel-sub
   ###
-  create: (objName, relName, subName, callback) =>
+  create: (objName, relName, subName, callback) ->
     console.log "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
       if err then throw err
@@ -123,7 +123,7 @@ module.exports = class GraphDB
   ###
   Gets all the objects in the db
   ###
-  getAllObjects: (callback) =>
+  getAllObjects: (callback) ->
     query = [
       'START n=node(*)',
       'RETURN n'
@@ -135,7 +135,7 @@ module.exports = class GraphDB
   ###
   Gets all relationships stored in the db
   ###
-  getAllRelationships: (callback) =>
+  getAllRelationships: (callback) ->
     query = [
       'START n=node(*)',
       'MATCH n-[r]->m',
@@ -143,5 +143,3 @@ module.exports = class GraphDB
     @db.query query, {}, (err, results) ->
       if err then throw err
       callback null, results
-
-

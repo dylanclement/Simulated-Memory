@@ -1,1 +1,1 @@
-[{"obj":"shark","rel":"is_a","sub":"carnivore"},{"obj":"tiger","rel":"is_a","sub":"carnivore"}]
+[{"obj":"cat","rel":"is_a","sub":"mammal"},{"obj":"cat","rel":"is_a","sub":"carnivore"},{"obj":"cat","rel":"is_a","sub":"animal"},{"obj":"shark","rel":"is_a","sub":"carnivore"},{"obj":"lion","rel":"is_a","sub":"carnivore"},{"obj":"tiger","rel":"is_a","sub":"mammal"},{"obj":"tiger","rel":"is_a","sub":"carnivore"},{"obj":"dog","rel":"is_a","sub":"mammal"}]
