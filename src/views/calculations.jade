@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p.lead Here is where we do calculaitons on the data
+  .row
+    a.span1.btn(href='/relationships') All
+    a.span1.btn(href='/conclusion/is_a_category') Categories
+    a.span2.btn(href='/conclusion/popular_relationships') Popular relationships
+  .row
+    a.span1.btn(href='/relationships/save') Save DB
+    a.span1.btn(href='/relationships/load') Load DB
+    a.span1.btn(href='/clearDB') Clear DB
