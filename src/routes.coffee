@@ -3,7 +3,12 @@ moment = require 'moment'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
-  res.render 'index', title: 'In4mahcy'# CoffeeScript
+  res.render 'index', title: 'In4mahcy'
+
+# [get]
+# Gets the calculations page
+exports.calculations = (req, res) ->
+  res.render 'calculations', title: 'In4mahcy'
 
 # [push]
 # Save a relationship
@@ -13,8 +18,8 @@ exports.relationship = (req, res) ->
   db.create body.Obj, body.Rel, body.Sub, (err, obj, rel, sub) ->
     res.send "saved object #{obj.data.name} -> #{rel.database} -> #{sub.data.name}"
 
-# [push]
-# Save a relationship
+# [get]
+# Gets all relationships
 exports.relationships = (req, res) ->
   body = req.body
   db = req.db
