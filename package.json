@@ -5,15 +5,14 @@
   "description": "Information Management ++",
   "main": "./server.js",
   "dependencies" : {
-    "async": "0.2.x",
-    "coffee-script": "1.x.x",
-    "express": "3.x.x",
-    "less-middleware": "0.x.x",
-    "jade": "0.x.x",
-    "winston": "0.6.x",
-    "neo4j": "0.2.x",
-    "npm" : "1.2.x",
-    "moment" : "2.0.x"
+    "async": ">= 0.2.0",
+    "coffee-script": ">= 1.2.0",
+    "express": ">= 3.0.0",
+    "less-middleware": ">= 0.x.x",
+    "jade": ">= 0.20.1",
+    "bunyan": ">= 0.21.0",
+    "neo4j": ">= 0.2.1",
+    "moment" : ">= 2.0.0"
   },
   "noAnalyze": true,
   "license": "Apache",
@@ -24,10 +23,10 @@
     "node-inspector": "git://github.com/dannycoates/node-inspector#update-ui"
   },
   "scripts": {
-    "start": "node server.js",
-    "debug": "npm run-script inspector; node --debug server",
+    "start": "node server.js | ./node_modules/bunyan/bin/bunyan",
+    "debug": "npm run-script inspector; node --debug server | ./node_modules/bunyan/bin/bunyan",
     "test": "mocha --compilers coffee:coffee-script",
-    "watch": "supervisor -i assets,public,test -e js,coffee,json server",
+    "watch": "supervisor -i assets,public,test -e js,coffee,json server | ./node_modules/bunyan/bin/bunyan",
     "migrate": "make migrate"
   },
   "engines": {
