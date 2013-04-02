@@ -46,7 +46,7 @@ app.configure 'development', ->
 
 # set up routes
 app.get '/', routes.index
-app.get '/calculations', routes.index
+app.get '/calculations', routes.calculations
 app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
 app.get '/clearDB', setDb, routes.clearDB
