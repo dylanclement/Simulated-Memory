@@ -8,7 +8,6 @@
     "async": "0.2.x",
     "coffee-script": "1.x.x",
     "express": "3.x.x",
-    "fs" : "*",
     "less-middleware": "0.x.x",
     "jade": "0.x.x",
     "winston": "0.6.x",
