@@ -24,7 +24,7 @@ module.exports = class GraphDB
   ###
   Clears all the data from the db
   ###
-  clear: ->
+  clear: (callback ->) ->
     log.info 'Clearing database'
     query = [
       'START n=node(*)',
@@ -32,7 +32,7 @@ module.exports = class GraphDB
       'DELETE n, r'
     ].join '\n'
     @db.query query, nodes: '*', (err, results) ->
-      throw err if err
+      if err then return callback err
 
   ###
   Gets an object from the db
@@ -44,9 +44,7 @@ module.exports = class GraphDB
         # object doesn't
         callback null, null
         log.info "Node #{name} doesn't exist"
-      else if err
-        log.error err.exception.message, err
-        throw err
+      else if err then return callback err
 
   ###
   Creates an object
@@ -64,8 +62,7 @@ module.exports = class GraphDB
             callback null, savedNode
         log.info "Created object #{obj.name}"
       else if err
-        log.error err.exception.message, err
-        throw err
+        return callback err
       else if node
         # object exists so increment the access count
         log.info "Returning object #{obj.name}"
@@ -88,8 +85,7 @@ module.exports = class GraphDB
               callback null, savedRel
           log.info "Created edge #{relName}"
       else if err
-        log.error err.exception.message, err
-        throw err
+        return callback err
       else if rel
         log.info "Relationship #{relName} exists, incrementing access count."
         rel.data.access_count += 1
@@ -101,12 +97,12 @@ module.exports = class GraphDB
   create: (objName, relName, subName, callback) ->
     console.log "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
-      if err then throw err
+      if err then return callback err
       @createObject { name: subName, access_count: 0 }, (err, sub) =>
-        if err then throw err
+        if err then return callback err
         @createRelation obj, sub, relName, (err, rel) =>
-          if err then throw err
-          callback null, obj, rel, sub if callback
+          if err then return callback err
+          callback null, obj, rel, sub
 
 
   ###
@@ -130,7 +126,7 @@ module.exports = class GraphDB
       'RETURN n'
     ].join '\n'
     @db.query query, nodes: '*', (err, results) ->
-      if err then throw err
+      if err then return callback err
       callback null, results
 
   ###
@@ -142,5 +138,5 @@ module.exports = class GraphDB
       'MATCH n-[r]->m',
       'RETURN n.name as obj, type(r) as rel, m.name as sub'].join '\n'
     @db.query query, {}, (err, results) ->
-      if err then throw err
+      if err then return callback err
       callback null, results
