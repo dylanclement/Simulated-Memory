@@ -20,8 +20,20 @@ exports.relationship = (req, res) ->
     res.send "saved object #{obj.data.name} -> #{rel.type} -> #{sub.data.name}"
 
 # [get]
-# Gets all relationships
+# gets a grouped collection
 exports.relationships = (req, res) ->
+  body = req.body
+  db = req.db
+  query = ['START n=node(*)',
+    'MATCH n-[p]->m',
+    'RETURN n.name as obj, TYPE(p) as rel, m.name as sub'].join '\n'
+  db.cypher query, {}, (err, results) ->
+    res.send results.map (result) ->
+        "#{result.obj} -> #{result.rel} -> #{result.sub}"
+
+# [get]
+# Gets all objects
+exports.objects = (req, res) ->
   body = req.body
   db = req.db
   db.getAllObjects (err, results) ->
