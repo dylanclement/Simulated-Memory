@@ -19,7 +19,7 @@ class DeadSimpleRenderer
       # pt2:  {x:#, y:#}  target position in screen coords
 
       # draw a line from pt1 to pt2
-      @ctx.strokeStyle = "rgba(255,255,255, .333)"
+      @ctx.strokeStyle = "rgba(0,255,255, .333)"
       @ctx.lineWidth = 1 + 4*edge.data.weight
       @ctx.beginPath null
       @ctx.moveTo pt1.x, pt1.y
@@ -37,26 +37,24 @@ class DeadSimpleRenderer
 $ ->
   sys = arbor.ParticleSystem 1000, 800, 0.5  # create the system with sensible repulsion/stiffness/friction
   sys.renderer = new DeadSimpleRenderer "#graphCanvas" # our newly created renderer will have its .init() method called shortly by sys...
-  # dummy data
-  data =
-    nodes:
-      a: {}
-      b: {}
-      c: {}
-      d: {}
-    edges:
-      a:
-        b:
-          weight: 0.1
-        c:
-          weight: 0.6
-      c:
-        b:
-          weight: 0.2
-        d:
-          weight: 0.9
 
-  sys.graft {nodes:data.nodes, edges:data.edges}
+  # call the rest api endpoint to get the data
+  $.getJSON '/objects', (data) ->
+    # get the nodes from the server
+    nodes = {}
+    data.map (i) ->
+      nodes[i.name] = {}
+
+    # get the edges
+    $.getJSON '/relationships', (data) ->
+      edges = {}
+      data.map (i) ->
+        edges[i[0]] =
+          i[2] =
+            weight: 0.5
+      console.log edges
+      sys.graft {nodes:nodes, edges:edges}
+
   sys.addNode 'e', {}
   sys.addNode 'f', {}
   sys.addEdge 'e', 'f', { weight: 0.9 }

@@ -31,7 +31,7 @@ exports.relationships = (req, res, next) ->
   db.cypher query, {}, (err, results) ->
     if err then return next err
     res.send results.map (result) ->
-        "#{result.obj} -> #{result.rel} -> #{result.sub}"
+        [result.obj, result.rel, result.sub]
 
 # [get]
 # Gets all objects
@@ -41,7 +41,10 @@ exports.objects = (req, res, next) ->
   db.getAllObjects (err, results) ->
     if err then return next err
     res.send results.map (result) ->
-        "name = #{result['n'].data.name}, access_count = #{result['n'].data.access_count}, created_at = #{moment(result['n'].data.created_at).calendar()}"
+      item =
+        name: result['n'].data.name
+        access_count: result['n'].data.access_count
+        created_at: moment(result['n'].data.created_at).calendar()
 
 # [get]
 # Clears the database
