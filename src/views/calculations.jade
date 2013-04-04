@@ -1,13 +1,19 @@
 extends layout
 
 block content
-  h1= title
+  h2= title
   p.lead Here is where we do calculaitons on the data
   .row
-    a.span1.btn(href='/relationships') All
-    a.span1.btn(href='/conclusion/is_a_category') Categories
-    a.span2.btn(href='/conclusion/popular_relationships') Popular relationships
+    .span6.group-box
+      h4 General
+      a.btn(href='/relationships') All
   .row
-    a.span1.btn(href='/relationships/save') Save DB
-    a.span1.btn(href='/relationships/load') Load DB
-    a.span1.btn(href='/clearDB') Clear DB
+    .span6.group-box
+      h4 Conclusions
+      a.btn(href='/conclusion/is_a_category') Categories
+      a.btn(href='/conclusion/popular_relationships') Popular relationships
+    .span5.group-box
+      h4 Data Management
+      a.btn(href='/relationships/save') Save
+      a.btn(href='/relationships/load') Load
+      a.btn(href='/clearDB') Clear All

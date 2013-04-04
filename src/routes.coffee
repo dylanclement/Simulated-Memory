@@ -26,7 +26,8 @@ exports.relationships = (req, res) ->
   db = req.db
   db.getAllObjects (err, results) ->
     res.send results.map (result) ->
-        "name = #{result['n'].data.name}, access_count = #{result['n'].data.access_count}, created_at = #{moment(result['n'].data.created_at).calendar()}"
+        return "name = #{result['n'].data.name}, access_count = #{result['n'].data.access_count}, "
+        + "created_at = #{moment(result['n'].data.created_at).calendar()}"
 
 # [get]
 # Clears the database
@@ -38,7 +39,7 @@ exports.clearDB = (req, res) ->
 
 # [get]
 # gets a grouped collection
-exports.Categories = (req, res) ->
+exports.categories = (req, res) ->
   body = req.body
   db = req.db
   query = ['START n=node(*)',
