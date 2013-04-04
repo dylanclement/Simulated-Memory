@@ -4,7 +4,6 @@ http = require 'http'
 path = require 'path'
 graphdb = require './services/graphdb.coffee'
 {log} = require './services/log.coffee'
-
 # Connect to DB's
 db = new graphdb process.env.NEO4J_URL || 'http://localhost:7474'
 
@@ -24,8 +23,8 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
-  app.use require('less-middleware')(src: "#{__dirname}/public" )
   app.use express.static(path.join __dirname, 'public')
+  app.use require('connect-assets')( )
 app.configure 'development', ->
   app.use express.errorHandler( dumpExceptions: true, showStack: true)
 
@@ -40,6 +39,6 @@ app.get '/relationships/save', setDb, routes.saveToFile
 app.get '/relationships/load', setDb, routes.loadFromFile
 app.get '/conclusion/is_a_category', setDb, routes.categories
 app.get '/conclusion/popular_relationships', setDb, routes.getRelationshipsOrderedByUse
-
 # start listening
 app.listen app.get('port'), ->  log.info "server listening on http://localhost:#{app.get 'port'}."
+
