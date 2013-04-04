@@ -2,8 +2,19 @@ doctype 5
 html(lang="en")
   head
     title= title
-    link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name='description', content='A data management system using relationships between entities to store data.')
+    meta(name='author', content='Dylan Clement')
+    // HTML5 shim, for IE6-8 support of HTML elements
+    //if lt IE 9
+      script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
+    block stylesheets
+      link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+
+    block scripts
+      script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+      script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js")
+
   body
     div.container
       div.navbar

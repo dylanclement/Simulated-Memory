@@ -24,7 +24,7 @@ module.exports = class GraphDB
   ###
   Clears all the data from the db
   ###
-  clear: (callback ->) ->
+  clear: (callback = ->) ->
     log.info 'Clearing database'
     query = [
       'START n=node(*)',
