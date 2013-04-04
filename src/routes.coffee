@@ -54,7 +54,7 @@ exports.clearDB = (req, res, next) ->
 
 # [get]
 # gets a grouped collection
-exports.Categories = (req, res, next) ->
+exports.categories = (req, res, next) ->
   body = req.body
   db = req.db
   query = ['START n=node(*)',

@@ -23,10 +23,10 @@
     "node-inspector": "git://github.com/dannycoates/node-inspector#update-ui"
   },
   "scripts": {
-    "start": "node server.js | ./node_modules/bunyan/bin/bunyan",
-    "debug": "npm run-script inspector; node --debug server | ./node_modules/bunyan/bin/bunyan",
+    "start": "node server.js",
+    "debug": "npm run-script inspector; node --debug server",
     "test": "mocha --compilers coffee:coffee-script",
-    "watch": "supervisor -i assets,public,test -e js,coffee,json server | ./node_modules/bunyan/bin/bunyan",
+    "watch": "supervisor -i src/public,src/test,data -e js,coffee server | ./node_modules/bunyan/bin/bunyan",
     "migrate": "make migrate"
   },
   "engines": {
