@@ -1,8 +1,9 @@
 neo4j = require 'neo4j'
+{log} = require './log.coffee'
 
 module.exports = class GraphDB
 
-  constructor: (url, @logger, dbname) ->
+  constructor: (url, dbname) ->
     @db = new neo4j.GraphDatabase url
 
   OBJ_INDEX_NAME: 'objects'
@@ -23,15 +24,15 @@ module.exports = class GraphDB
   ###
   Clears all the data from the db
   ###
-  clear: ->
-    @logger.info 'Clearing database'
+  clear: (callback = ->) ->
+    log.info 'Clearing database'
     query = [
       'START n=node(*)',
       'MATCH n-[r?]-()',
       'DELETE n, r'
     ].join '\n'
     @db.query query, nodes: '*', (err, results) ->
-      throw err if err
+      if err then return callback err
 
   ###
   Gets an object from the db
@@ -42,10 +43,8 @@ module.exports = class GraphDB
       if (err and err.message.exception == 'NotFoundException') or (!err and !node)
         # object doesn't
         callback null, null
-        @logger.info "Node #{name} doesn't exist"
-      else if err
-        @logger.error err.exception.message, err
-        throw err
+        log.info "Node #{name} doesn't exist"
+      else if err then return callback err
 
   ###
   Creates an object
@@ -61,13 +60,12 @@ module.exports = class GraphDB
           # TODO! could potentially insert a duplicate object before we've created an index
           savedNode.index @OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) =>
             callback null, savedNode
-        @logger.info "Created object #{obj.name}"
+        log.info "Created object #{obj.name}"
       else if err
-        @logger.error err.exception.message, err
-        throw err
+        return callback err
       else if node
         # object exists so increment the access count
-        @logger.info "Returning object #{obj.name}"
+        log.info "Returning object #{obj.name}"
         node.data.access_count += 1
         node.save callback
 
@@ -85,12 +83,11 @@ module.exports = class GraphDB
             # todo could potentially insert a duplicate relationship before we've created an index
             savedRel.index @REL_INDEX_NAME, relationship, relName, (err, indexedRel) =>
               callback null, savedRel
-          @logger.info "Created edge #{relName}"
+          log.info "Created edge #{relName}"
       else if err
-        @logger.error err.exception.message, err
-        throw err
+        return callback err
       else if rel
-        @logger.info "Relationship #{relName} exists, incrementing access count."
+        log.info "Relationship #{relName} exists, incrementing access count."
         rel.data.access_count += 1
         rel.save callback
 
@@ -100,12 +97,12 @@ module.exports = class GraphDB
   create: (objName, relName, subName, callback) ->
     console.log "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
-      if err then throw err
+      if err then return callback err
       @createObject { name: subName, access_count: 0 }, (err, sub) =>
-        if err then throw err
+        if err then return callback err
         @createRelation obj, sub, relName, (err, rel) =>
-          if err then throw err
-          callback null, obj, rel, sub if callback
+          if err then return callback err
+          callback null, obj, rel, sub
 
 
   ###
@@ -129,7 +126,7 @@ module.exports = class GraphDB
       'RETURN n'
     ].join '\n'
     @db.query query, nodes: '*', (err, results) ->
-      if err then throw err
+      if err then return callback err
       callback null, results
 
   ###
@@ -141,5 +138,5 @@ module.exports = class GraphDB
       'MATCH n-[r]->m',
       'RETURN n.name as obj, type(r) as rel, m.name as sub'].join '\n'
     @db.query query, {}, (err, results) ->
-      if err then throw err
+      if err then return callback err
       callback null, results
