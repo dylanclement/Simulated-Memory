@@ -33,6 +33,7 @@ module.exports = class GraphDB
     ].join '\n'
     @db.query query, nodes: '*', (err, results) ->
       if err then return callback err
+      return callback null
 
   ###
   Gets an object from the db
@@ -45,6 +46,7 @@ module.exports = class GraphDB
         callback null, null
         log.info "Node #{name} doesn't exist"
       else if err then return callback err
+      return callback null, node
 
   ###
   Creates an object
