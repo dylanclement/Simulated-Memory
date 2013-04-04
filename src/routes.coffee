@@ -1,6 +1,7 @@
 fs = require 'fs'
 moment = require 'moment'
 async = require 'async'
+_ = require 'underscore'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
@@ -45,6 +46,33 @@ exports.objects = (req, res, next) ->
         name: result['n'].data.name
         access_count: result['n'].data.access_count
         created_at: moment(result['n'].data.created_at).calendar()
+
+# [get]
+# Gets data in a format that arbor.js can use to display in a graph
+exports.getGraphDataArbor = (req, res, next) ->
+  body = req.body
+  db = req.db
+  query = ['START n=node(*)',
+    'MATCH n-[p]->m',
+    'RETURN n.name as obj, TYPE(p) as rel, m.name as sub'].join '\n'
+  db.cypher query, {}, (err, results) ->
+    if err then return next err
+    data =
+      nodes: {}
+      edges: {}
+    results.map (result) ->
+      # Create the nodes
+      data.nodes[result.obj] ?= {}
+      data.nodes[result.sub] ?= {}
+
+      # create the edges
+      data.edges[result.obj] ?= {}
+      data.edges[result.obj][result.sub] =
+        # set the name and weight for the edges
+        weight: 0.5
+        name: result.rel.replace '_', ' '
+
+    res.json data
 
 # [get]
 # Clears the database

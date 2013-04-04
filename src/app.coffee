@@ -34,9 +34,12 @@ app.get '/calculations', routes.calculations
 app.get '/objects', setDb, routes.objects
 app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
+
 app.get '/clearDB', setDb, routes.clearDB
 app.get '/relationships/save', setDb, routes.saveToFile
 app.get '/relationships/load', setDb, routes.loadFromFile
+
+app.get '/graphData/arbor', setDb, routes.getGraphDataArbor
 app.get '/conclusion/is_a_category', setDb, routes.categories
 app.get '/conclusion/popular_relationships', setDb, routes.getRelationshipsOrderedByUse
 # start listening
