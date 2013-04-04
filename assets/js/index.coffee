@@ -32,6 +32,9 @@ class DeadSimpleRenderer
 
       # draw a rectangle centered at pt
       w = 10
+      @ctx.fillStyle = "blue"
+      @ctx.font = "bold 16px Arial"
+      @ctx.fillText node.name, pt.x, pt.y
       @ctx.fillStyle = "black"
       @ctx.fillRect pt.x-w/2, pt.y-w/2, w,w
 $ ->
@@ -49,12 +52,8 @@ $ ->
     $.getJSON '/relationships', (data) ->
       edges = {}
       data.map (i) ->
-        edges[i[0]] =
-          i[2] =
-            weight: 0.5
+        edges[i[0]] = {}
+        edges[i[0]][i[2]] = { weight : 0.5 }
+
       console.log edges
       sys.graft {nodes:nodes, edges:edges}
-
-  sys.addNode 'e', {}
-  sys.addNode 'f', {}
-  sys.addEdge 'e', 'f', { weight: 0.9 }
