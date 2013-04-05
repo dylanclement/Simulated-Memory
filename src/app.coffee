@@ -18,7 +18,7 @@ app.configure ->
   app.set 'port', process.env.PORT || 3618
   app.set 'views', __dirname + '/views'
   app.set 'view engine', 'jade'
-  app.use express.favicon()
+  app.use express.favicon("#{__dirname}/public/images/favicon.ico")
   app.use express.logger 'dev'
   app.use express.bodyParser()
   app.use express.methodOverride()
@@ -38,6 +38,7 @@ app.post '/relationship', setDb, routes.relationship
 app.get '/clearDB', setDb, routes.clearDB
 app.get '/relationships/save', setDb, routes.saveToFile
 app.get '/relationships/load', setDb, routes.loadFromFile
+app.get '/relationships/load-demo', setDb, routes.loadDemoFromFile
 
 app.get '/graphData/arbor', setDb, routes.getGraphDataArbor
 app.get '/conclusion/is_a_category', setDb, routes.categories

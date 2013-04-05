@@ -42,9 +42,26 @@ class DeadSimpleRenderer
 $ ->
   sys = arbor.ParticleSystem 1000, 800, 0.5  # create the system with sensible repulsion/stiffness/friction
   sys.renderer = new DeadSimpleRenderer "#graphCanvas" # our newly created renderer will have its .init() method called shortly by sys...
-
   # call the rest api endpoint to get the data
   $.getJSON '/graphData/arbor', (data) ->
     # get the nodes from the server
     console.log data
     sys.graft data
+
+  $('#addrel').submit (ev) ->
+    obj = $("[name='Obj']").val()
+    rel = $("[name='Rel']").val()
+    sub = $("[name='Sub']").val()
+    sys.addEdge obj, sub, { name: rel }
+    $.ajax
+      type: 'POST'
+      url: '/relationship'
+      data:
+        Obj: obj
+        Rel: rel
+        Sub: sub
+      success: (success) ->
+        console.log success
+    return false
+
+

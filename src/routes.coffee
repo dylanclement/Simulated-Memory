@@ -114,10 +114,8 @@ exports.saveToFile = (req, res, next) ->
       if err then return next err
       res.send resJSON
 
-exports.loadFromFile = (req, res, next) ->
-  body = req.body
-  db = req.db
-  fs.readFile "data/relations.json", 'utf8', (err, resJSON) ->
+fileLoad = (rwq, res, next, db, fileName) ->
+  fs.readFile fileName, 'utf8', (err, resJSON) ->
     if err then return next err
     results = JSON.parse resJSON
     res.send results
@@ -129,3 +127,8 @@ exports.loadFromFile = (req, res, next) ->
           db.create ors.obj, ors.rel, ors.sub, callback
     async.series cbs
 
+exports.loadFromFile = (req, res, next) ->
+  fileLoad req, res, next, req.db, 'data/relations.json'
+
+exports.loadDemoFromFile = (req, res, next) ->
+  fileLoad req, res, next, req.db, 'data/demo-relations.json'
