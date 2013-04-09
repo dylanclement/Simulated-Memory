@@ -1,0 +1,1888 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"has",
+				"hasActiveSlot"
+			],
+			[
+				"uniq",
+				"uniqPageViews"
+			],
+			[
+				"adS",
+				"adSlotBookings"
+			],
+			[
+				"update",
+				"updateOpportunity"
+			],
+			[
+				"salesF",
+				"salesforceStatus"
+			],
+			[
+				"salesFor",
+				"salesForceId"
+			],
+			[
+				"sales",
+				"salesForceId"
+			],
+			[
+				"ap",
+				"approved"
+			],
+			[
+				"appr",
+				"approvalStatus"
+			],
+			[
+				"reject",
+				"rejectPubliser"
+			],
+			[
+				"approve",
+				"approvePublisher"
+			],
+			[
+				"try",
+				"try  (keyword)"
+			],
+			[
+				"save",
+				"savePublisher"
+			],
+			[
+				"SalesForce",
+				"SalesForceClient"
+			],
+			[
+				"minim",
+				"minimumViewsPercent"
+			],
+			[
+				"for",
+				"fori	Range Comprehension (inclusive)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/app.coffee",
+			"settings":
+			{
+				"buffer_size": 1707,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/routes.coffee",
+			"settings":
+			{
+				"buffer_size": 3893,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/services/graphdb.coffee",
+			"settings":
+			{
+				"buffer_size": 4581,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/index.coffee",
+			"settings":
+			{
+				"buffer_size": 2664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1090,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/views/index.jade",
+			"settings":
+			{
+				"buffer_size": 764,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/views/layout.jade",
+			"settings":
+			{
+				"buffer_size": 993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/views/calculations.jade",
+			"settings":
+			{
+				"buffer_size": 629,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/C++/C++.sublime-build",
+	"command_palette":
+	{
+		"height": 285.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"synta coff",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"github",
+				"Github: Blame"
+			],
+			[
+				"git ",
+				"Git: Pull"
+			],
+			[
+				"git",
+				"Git: Gui"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"git st",
+				"Git: Status"
+			],
+			[
+				"git dif",
+				"Git: Diff Current File"
+			],
+			[
+				"coffee",
+				"Coffee: Display JavaScript"
+			],
+			[
+				"upgra",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"ssc++",
+				"Set Syntax: C++"
+			],
+			[
+				"Coffee",
+				"Coffee: Display JavaScript"
+			],
+			[
+				"Lint",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"Linter",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"PAcka",
+				"Package Control: Remove Package"
+			],
+			[
+				"JS",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"Packa",
+				"Package Control: Install Package"
+			],
+			[
+				"JADE",
+				"Set Syntax: Jade"
+			],
+			[
+				"",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 436.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/dylan/Projects/dylan/in4mahcy/app/views/layout.jade",
+		"/home/dylan/Projects/dylan/in4mahcy/app/app.coffee",
+		"/home/dylan/Projects/dylan/in4mahcy/app/ui/index.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/marketplace/controllers/marketplace.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/lib/routes/payment.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslotDetails.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/auth.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/models/adslot.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/publisher/adslot.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/publisher/index.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/publisher/site.coffee",
+		"/home/dylan/Projects/direct-web/data/adslot-data.json",
+		"/home/dylan/Projects/direct-web/advertiser/lib/routes/auth.coffee",
+		"/home/dylan/.config/sublime-text-2/Packages/JSLint/JSLint.sublime-settings",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/app.coffee",
+		"/home/dylan/Projects/direct-web/data/site-data.json",
+		"/home/dylan/Projects/direct-web/publisher/app.coffee",
+		"/home/dylan/Projects/direct-web/publisher/initialisation.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/log.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/integration/salesforce/test.coffee",
+		"/home/dylan/Projects/direct-web/data/campaign-data.json",
+		"/home/dylan/Projects/direct-web/common/lib/utils/logSerializers.coffee",
+		"/home/dylan/Projects/direct-web/data/demo-google-analytics-data.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/package.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/log.coffee",
+		"/home/dylan/Projects/direct-web/publisher/config.default.json",
+		"/home/dylan/Projects/direct-web/common/lib/utils/purchase.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/models/site.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/siteadmin/index.coffee",
+		"/home/dylan/Projects/direct-web/common/test/purchase.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/utils/db.coffee",
+		"/home/dylan/Projects/direct-web/publisher/package.json",
+		"/home/dylan/Projects/direct-web/common/lib/integration/create/create.coffee",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/test.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/test/payment.coffee",
+		"/home/dylan/Projects/direct-web/scripts/dfp-keyword-tasks/config.ci.json",
+		"/home/dylan/Projects/direct-web/scripts/dfp-keyword-tasks/app.coffee",
+		"/home/dylan/Projects/direct-web/scripts/refund-processor/app.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/cart/cartSummary.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/siteadmin/reports.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/config.default.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/config.production.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/config.demo.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/config.default.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/config.ci.json",
+		"/home/dylan/Projects/direct-web/advertiser/lib/routes/marketplace/api.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/models/adslotBooking.coffee",
+		"/home/dylan/Projects/direct-web/scripts/billing/app.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/models/user.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/lib/routes/index.coffee",
+		"/home/dylan/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/dylan/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/dylan/Projects/direct-web/scripts/google-api/app.coffee",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/npm-shrinkwrap.json",
+		"/home/dylan/Projects/direct-web/publisher/config.demo.json",
+		"/home/dylan/Projects/direct-web/scripts/refund-processor/package.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce-jobs/partner.wsdl",
+		"/home/dylan/Projects/direct-web/data/google-analytics-data.json",
+		"/home/dylan/Projects/direct-web/scripts/salesforce/app.coffee",
+		"/home/dylan/Projects/direct-web/common/npm-shrinkwrap.json",
+		"/home/dylan/Projects/direct-web/common/test.coffee",
+		"/home/dylan/Projects/direct-web/publisher/server.js",
+		"/home/dylan/Projects/direct-web/publisher/config.production.json",
+		"/home/dylan/Projects/direct-web/publisher/config.ci.json",
+		"/home/dylan/.config/sublime-text-2/Packages/Web Inspector/swi.sublime-settings",
+		"/home/dylan/Projects/direct-web/common/lib/integration/salesforce/salesforceClient.coffee",
+		"/home/dylan/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/dylan/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/dylan/Projects/direct-web/data/user-data.json",
+		"/home/dylan/Projects/direct-web/common/test/salesForceTests.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/integration/salesforce/salesForceClient.coffee",
+		"/home/dylan/Projects/direct-web/publisher/lib/routes/siteadmin/index.coffee.orig",
+		"/home/dylan/.config/sublime-text-2/Packages/User/swi.sublime-settings",
+		"/home/dylan/.config/sublime-text-2/Packages/Web Inspector/Default (Linux).sublime-keymap",
+		"/home/dylan/Projects/direct-web/publisher/lib/views/siteadmin/publisherDetails.jade",
+		"/home/dylan/Projects/direct-web/common/package.json",
+		"/home/dylan/Projects/direct-web/advertiser/lib/routes/siteadmin/index.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/config.ci.json",
+		"/home/dylan/Projects/direct-web/common/lib/routes/log.coffee",
+		"/home/dylan/.config/sublime-text-2/Packages/Git/Git.sublime-settings",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editPreview.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editPricingGeo.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editPricing.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editNav.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editDetails.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/initialisation.coffee",
+		"/home/dylan/Projects/direct-web/scripts/salesforce/package.json",
+		"/home/dylan/Projects/direct-web/common/lib/integration/dfp/dfp.coffee",
+		"/home/dylan/Projects/direct-web/scripts/salesforce/app.coffee.orig",
+		"/home/dylan/Projects/direct-web/scripts/delete-user-dfp-data/package.json",
+		"/home/dylan/Projects/direct-web/.git/hooks/update.sample",
+		"/home/dylan/Projects/direct-web/.git/config",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editBackupTag.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editAdTag.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/adslot/editAdServer.coffee",
+		"/tmp/tmp0D6K3u-rabbitvcs-95508-d277a.diff",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/utils.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/lib/views/sites/show.jade",
+		"/home/dylan/Projects/direct-web/common/lib/views/shared/_siteshow.jade",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/thirdPartyAdTag.coffee",
+		"/home/dylan/Projects/test.cpp",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/siteShow.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/lib/views/sites/_sponsorshipBooking.jade",
+		"/home/dylan/Projects/direct-web/advertiser/lib/views/sites/_cpmBooking.jade",
+		"/home/dylan/Projects/direct-web/common/lib/utils/utility.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/views/shared/_preview.jade",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/creativeCreate.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/creativeUpload.coffee",
+		"/home/dylan/Projects/direct-web/advertiser/assets/js/app/booking.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/utils/adslotShared.coffee",
+		"/home/dylan/Projects/direct-web/direct-web.sublime-workspace",
+		"/home/dylan/Projects/direct-web/common/lib/utils/expressHelpers.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/siteEdit.coffee",
+		"/home/dylan/Projects/direct-web/publisher/assets/js/app/utils.coffee",
+		"/home/dylan/Projects/direct-web/common/test/utility.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/integration/dfp/adslotDfp.coffee",
+		"/home/dylan/Projects/direct-web/common/test/delivery.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/middleware/session.coffee",
+		"/home/dylan/Projects/direct-web/common/test/integration/salesForceTests.coffee",
+		"/home/dylan/Projects/direct-web/common/test/integration/salesForce.coffee",
+		"/home/dylan/Projects/direct-web/common/lib/utils/lookup.coffee",
+		"/home/dylan/.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/Default (Linux).sublime-keymap",
+		"/home/dylan/.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/CoffeeComplete Plus.sublime-settings",
+		"/home/dylan/Projects/dylan/in4mahcy/Procfile",
+		"/home/dylan/Projects/direct-web/advertiser/lib/views/cart/bookingList.jade",
+		"/home/dylan/Projects/direct-web/publisher/assets/css/style.styl",
+		"/home/dylan/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/dylan/.config/sublime-text-2/Packages/User/Stylus.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"-*/node_modules/*",
+			"/home/dylan/Projects/direct-web/scripts/salesforce-jobs",
+			"-*/node_modules/*",
+			"/home/dylan/Projects/direct-web/scripts",
+			"-*/node_modules/*",
+			"-*/node_modules/*, *.coffee",
+			"-*/node_modules/*",
+			"-*/node_modules/*,-*.js",
+			"-*/node_modules/*",
+			"-*node_modules*",
+			"-/home/dylan/Projects/direct-web/advertiser/node_modules/*,-/home/dylan/Projects/direct-web/publisher/node_modules/*",
+			"-/home/dylan/Projects/direct-web/advertiser/node_modules/*,-publisher/node_modules/*",
+			"- /home/dylan/Projects/direct-web/advertiser/node_modules, - /home/dylan/Projects/direct-web/publisher/node_modules",
+			"- /node_modules",
+			"/node_modules",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"toy",
+			"tox",
+			"context",
+			"node-inspector",
+			"underscore",
+			"src",
+			"js",
+			"JS",
+			"coffee",
+			".coffee",
+			"MarketplaceCtrl",
+			"if err",
+			"conver",
+			"+",
+			"updateSa",
+			"db.",
+			"Unable to update publisher in SalesForce",
+			"updateConvertedLead",
+			"updateSa",
+			"updateSalesForce",
+			"publisher",
+			"updateSalesForce",
+			"publisherId",
+			"ncon",
+			"siteD",
+			"site",
+			"siteDetails",
+			"getSite",
+			"updateSalesforceStatus",
+			"SalesforceClient",
+			"changeStatus",
+			"change-status-to",
+			"updateSalesForce",
+			"status = 'active'",
+			"sanitize",
+			"new USer",
+			"new User",
+			"new User ",
+			"new User",
+			"new Error ",
+			"new Error {",
+			"Unable to get account for publisher ",
+			"StageName",
+			"Opport",
+			"SaveLead",
+			"hasActiveSlot",
+			"@",
+			"fs = ",
+			"fs",
+			"db.",
+			"SalesF",
+			"nconf.get('salesforce')",
+			"generateAdSlotBookings",
+			"log",
+			"SalesforceClient",
+			"processPaidBooking",
+			"Booking request payment successful",
+			"processPaidBooking",
+			"generateAdSlotBookings",
+			"Attempt to update salesForce",
+			"updateSalesforceStatus",
+			"Campaigns generated successfully",
+			"@",
+			"Updated opportunity status",
+			"sales",
+			"adSlot",
+			"SalesforceClient",
+			"Page_Impressions__c",
+			"publisher",
+			"setTermsAndConditions",
+			"sales",
+			"reset-terms",
+			"Reset T&C",
+			"\nReset T&C",
+			"reset",
+			"termsAccepted",
+			"acceptTermsAndConditions",
+			"adslots",
+			"valid",
+			"updateSFStatus",
+			"updateOpportunityStatus",
+			".contains",
+			"hasLogo",
+			"Created opportunity in salesforce",
+			"resp",
+			"planet",
+			"req.user",
+			" req.user",
+			"req.user",
+			"termsAccepted",
+			"Terms",
+			"TermsAndConditions",
+			"adSlotRoutes with demo data adSlotRoutes.getEdit should respond with a view",
+			"async.forEach",
+			"updatePublisher",
+			"rejectPublisher",
+			"Updated opportunity status in salesforce to",
+			"callback",
+			"async.ser",
+			"async.",
+			"lead",
+			"paral",
+			"async.parallel",
+			"asyn",
+			"generateAdSlotBookings",
+			"updateSalesforceStatus",
+			"dfp",
+			"setSalesforceStatus",
+			"updateS",
+			"siteDetails",
+			"site updated by publisher",
+			"saveOpportunities",
+			"approveOpportunities",
+			"saveOpportunities",
+			"updatePublisher",
+			"uniqPageViews",
+			"db.",
+			"approveOpportunities",
+			"Lead already converted, checking if account exists",
+			"updateUserSalesforce",
+			"salesforceStatus",
+			"site",
+			"createSiteFromRequestData",
+			"SalesforceClient",
+			"if site.",
+			"if site",
+			"sales",
+			"logoUrl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"nconf.get 'salesforce'",
+			"\"salesforceStatus\": \"Approved\"",
+			"salesforceId",
+			"#-------------------------------------------------------------",
+			"#---------------------------------------------------------------"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/app.coffee",
+					"settings":
+					{
+						"buffer_size": 1707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/routes.coffee",
+					"settings":
+					{
+						"buffer_size": 3893,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 390.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/services/graphdb.coffee",
+					"settings":
+					{
+						"buffer_size": 4581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "assets/js/index.coffee",
+					"settings":
+					{
+						"buffer_size": 2664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 1090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "src/views/index.jade",
+					"settings":
+					{
+						"buffer_size": 764,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/views/layout.jade",
+					"settings":
+					{
+						"buffer_size": 993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/views/calculations.jade",
+					"settings":
+					{
+						"buffer_size": 629,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.330773841968,
+			0.661841944832,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CoffeeLintPanel":
+	{
+		"height": 112.0
+	},
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"output.jslint_result_view":
+	{
+		"height": 88.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"advertiser/package.json"
+			],
+			[
+				"adslotsha",
+				"common/lib/utils/adslotShared.coffee"
+			],
+			[
+				"site.co",
+				"publisher/lib/routes/publisher/site.coffee"
+			],
+			[
+				"app.co",
+				"scripts/salesforce-jobs/app.coffee"
+			],
+			[
+				"index.c",
+				"publisher/lib/routes/siteadmin/index.coffee"
+			],
+			[
+				"index.co",
+				"publisher/lib/routes/publisher/index.coffee"
+			],
+			[
+				"auth",
+				"publisher/lib/routes/auth.coffee"
+			],
+			[
+				"payment",
+				"advertiser/lib/routes/payment.coffee"
+			],
+			[
+				"adslot",
+				"common/lib/models/adslot.coffee"
+			],
+			[
+				"site",
+				"common/lib/models/site.coffee"
+			],
+			[
+				"siteadindex",
+				"publisher/lib/routes/siteadmin/index.coffee"
+			],
+			[
+				"site.",
+				"publisher/lib/routes/publisher/site.coffee"
+			],
+			[
+				"lo",
+				"common/lib/log.coffee"
+			],
+			[
+				"demo-goog",
+				"data/demo-google-analytics-data.json"
+			],
+			[
+				"goog",
+				"data/google-analytics-data.json"
+			],
+			[
+				"adslot.co",
+				"common/lib/models/adslot.coffee"
+			],
+			[
+				"demo-goo",
+				"data/demo-google-analytics-data.json"
+			],
+			[
+				"site-d",
+				"data/site-data.json"
+			],
+			[
+				"purcha",
+				"common/lib/utils/purchase.coffee"
+			],
+			[
+				"paym",
+				"advertiser/lib/routes/payment.coffee"
+			],
+			[
+				"repor",
+				"publisher/lib/routes/siteadmin/reports.coffee"
+			],
+			[
+				"sales",
+				"common/test/salesforceTests.coffee"
+			],
+			[
+				"index",
+				"publisher/lib/routes/publisher/index.coffee"
+			],
+			[
+				"init",
+				"publisher/initialisation.coffee"
+			],
+			[
+				"user",
+				"data/user-data.json"
+			],
+			[
+				"user-dat",
+				"data/user-data.json"
+			],
+			[
+				"site.c",
+				"publisher/lib/routes/publisher/site.coffee"
+			],
+			[
+				"shrink",
+				"common/npm-shrinkwrap.json"
+			],
+			[
+				"user-da",
+				"data/user-data.json"
+			],
+			[
+				"salesforce",
+				"common/test/salesforceTests.coffee"
+			],
+			[
+				"config.",
+				"publisher/config.demo.json"
+			],
+			[
+				".ci",
+				"publisher/config.ci.json"
+			],
+			[
+				"db.",
+				"common/lib/utils/db.coffee"
+			],
+			[
+				"pack",
+				"common/package.json"
+			],
+			[
+				"testsa",
+				"common/test/salesForceTests.coffee"
+			],
+			[
+				"config.def",
+				"publisher/config.default.json"
+			],
+			[
+				"user.co",
+				"common/lib/models/user.coffee"
+			],
+			[
+				"dfp",
+				"scripts/delete-user-dfp-data/package.json"
+			],
+			[
+				"app.",
+				"publisher/app.coffee"
+			],
+			[
+				"use",
+				"data/user-data.json"
+			],
+			[
+				"preview",
+				"common/lib/views/shared/_preview.jade"
+			],
+			[
+				"creativecre",
+				"advertiser/assets/js/app/creativeCreate.coffee"
+			],
+			[
+				"utils.",
+				"advertiser/assets/js/app/utils.coffee"
+			],
+			[
+				"third",
+				"advertiser/assets/js/app/thirdPartyAdTag.coffee"
+			],
+			[
+				"siteshow",
+				"advertiser/assets/js/app/siteShow.coffee"
+			],
+			[
+				"sponsors",
+				"advertiser/lib/views/sites/_sponsorshipBooking.jade"
+			],
+			[
+				"_cpm",
+				"advertiser/lib/views/sites/_cpmBooking.jade"
+			],
+			[
+				"adslot-da",
+				"data/adslot-data.json"
+			],
+			[
+				"app.c",
+				"publisher/app.coffee"
+			],
+			[
+				"user.",
+				"common/lib/models/user.coffee"
+			],
+			[
+				"packag",
+				"common/package.json"
+			],
+			[
+				"util",
+				"common/lib/utils/lookup.coffee"
+			],
+			[
+				"create",
+				"common/lib/integration/create/create.coffee"
+			],
+			[
+				"user.c",
+				"common/lib/models/user.coffee"
+			],
+			[
+				"rout",
+				"src/routes.coffee"
+			],
+			[
+				"grap",
+				"src/services/graphdb.coffee"
+			],
+			[
+				"_spons",
+				"advertiser/lib/views/sites/_sponsorshipBooking.jade"
+			],
+			[
+				"bookingl",
+				"advertiser/lib/views/cart/bookingList.jade"
+			],
+			[
+				".js",
+				"advertiser/server.js"
+			],
+			[
+				"",
+				"direct-web/advertiser/app.coffee"
+			],
+			[
+				"publisherdet",
+				"direct-web/publisher/lib/views/siteadmin/publisherDetails.jade"
+			],
+			[
+				"bill",
+				"direct-web/common/lib/utils/billing.coffee"
+			],
+			[
+				"address",
+				"direct-web/common/lib/models/address.coffee"
+			],
+			[
+				"auth.c",
+				"direct-web/advertiser/lib/routes/auth.coffee"
+			],
+			[
+				"admin",
+				"direct-web/publisher/lib/views/siteadmin/users/adminUserEdit.jade"
+			],
+			[
+				"app",
+				"direct-web/advertiser/app.coffee"
+			],
+			[
+				"publis",
+				"direct-web/publisher/test/publisherRoutes.coffee"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true
+}
