@@ -7,7 +7,11 @@ block content
     row
       input.span2(type="text", name="Obj", placeholder="Object Name…")
       span1 ->
-      input.span2(type="text", name="Rel", placeholder="Relationship…")
+      //input.span2(type="text", name="Rel", placeholder="Relationship…")
+      select(name='Rel')
+        option(value='is_a', selected='selected') is a
+        option(value='eats' ) eats
+        option(value='likes' ) likes
       span1 ->
       input.span2(type="text", name="Sub", placeholder="Subject…")
       span1 ...
