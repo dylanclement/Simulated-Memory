@@ -7,6 +7,15 @@ html(lang="en")
     // HTML5 shim, for IE6-8 support of HTML elements
     //if lt IE 9
       script(src='//html5shim.googlecode.com/svn/trunk/html5.js')
+    //if lte IE 8
+      script
+        document.createElement('ng-include');
+        document.createElement('ng-pluralize');
+        document.createElement('ng-view');
+
+        document.createElement('ng:include');
+        document.createElement('ng:pluralize');
+        document.createElement('ng:view');
     block stylesheets
       link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
       //link(rel='stylesheet', href='/stylesheets/style.css')
