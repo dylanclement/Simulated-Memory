@@ -3,22 +3,21 @@ extends layout
 block content
   h2= title
   p.lead Welcome to #{title}, here we use relations between objects to draw conclusions, analyse patterns and run custom logic on the information provided. The goal is to have the memory as a organic graph, growing and retracting.
-  form#addrel.form-inline(name="input", action="/relationship", method="post")
-    row
-      input.span2(type="text", name="Obj", placeholder="Object Name…")
-      span1 ->
-      //input.span2(type="text", name="Rel", placeholder="Relationship…")
-      select(name='Rel')
-        option(value='is_a', selected='selected') is a
-        option(value='eats' ) eats
-        option(value='likes' ) likes
-      span1 ->
-      input.span2(type="text", name="Sub", placeholder="Subject…")
-      span1 ...
-      input.span2.btn.success(type="submit", value="submit")
   div(ng-controller="GraphCtrl")
-    button(ng-click='console.log("Test")') Test click
-    canvas#graphCanvas(width="800", height="600")
+    form#addrel.form-inline(name="input", action="/relationship", method="post")
+      row
+        input.span2(type="text", name="Obj", placeholder="Object Name…")
+        span1 ->
+        //input.span2(type="text", name="Rel", placeholder="Relationship…")
+        select(name='Rel')
+          option(value='is_a', selected='selected') is a
+          option(value='eats' ) eats
+          option(value='likes' ) likes
+        span1 ->
+        input.span2(type="text", name="Sub", placeholder="Subject…")
+        span1 ...
+        input.span2.btn.success(type="submit", value="submit")
+    canvas#graphCanvas(width="800", height="600", ng-click="click($event)")
 
 block append scripts
   != js('graphRenderer')

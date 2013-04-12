@@ -1,8 +1,4 @@
 $ ->
-  #GraphCtrl.$inject = ["$scope"]
-  #module.controller "GraphCtrl", GraphCtrl
-  #angular.bootstrap(document, ['in4mahcy'])
-
   $('#addrel').submit (ev) ->
     obj = $("[name='Obj']").val()
     rel = $("[name='Rel']").val()
