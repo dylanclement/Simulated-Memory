@@ -7,3 +7,23 @@ class window.GraphCtrl
       # get the nodes from the server
       $scope.data = data
       @sys.graft data
+
+    $scope.mousedown = ($event) ->
+      console.log $event
+      pos = $(this).offset()
+      p =
+        x: $event.pageX-pos.left
+        y: $event.pageY-pos.top
+
+      selected = nearest = dragged = sys.nearest(p)
+
+      if selected.node
+        console.log selected, selected.node.name
+        @canvas = $('#graphCanvas').get 0
+        @ctx = @canvas.getContext "2d"
+        @ctx.beginPath null
+        @ctx.moveTo selected.screenPoint.x - 10, selected.screenPoint.y - 10
+        @ctx.fillStyle = "#500"
+        @ctx.fillText selected.node.name, selected.screenPoint.x, selected.screenPoint.y
+
+      return false
