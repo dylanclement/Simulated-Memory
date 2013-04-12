@@ -27,3 +27,12 @@ window.GraphCtrl = ($scope, $http) ->
         # @ctx.fillText selected.node.name, selected.screenPoint.x, selected.screenPoint.y
 
       return false
+
+    $scope.addRel = =>
+      Obj = $scope.Obj
+      Rel = $scope.Rel
+      Sub = $scope.Sub
+
+      # add the relationship to the graph and to the db
+      $http.post('/relationship', { Obj, Rel, Sub }).success (success) =>
+        @sys.addEdge Obj, Sub, { name: Rel }
