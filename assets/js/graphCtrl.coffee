@@ -14,11 +14,13 @@ window.GraphCtrl = ($scope, $http) ->
         y: $event.offsetY
 
       # use arbor to find the nearest node
-      selected = @sys.nearest(p)
+
+      # use arbor to find the nearest node
+      $scope.selected = @sys.nearest(p)
 
       # if we found one and the click was close enough
-      if selected.node && selected.distance < 25
-        console.log selected, selected.node.name
+      if $scope.selected.node && $scope.selected.distance < 25
+        console.log $scope.selected, $scope.selected.node.name
         # @canvas = $('#graphCanvas').get 0
         # @ctx = @canvas.getContext "2d"
         # @ctx.beginPath null

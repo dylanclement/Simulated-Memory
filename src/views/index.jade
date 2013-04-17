@@ -16,6 +16,7 @@ block content
         input.span2(type="text", name="Sub", ng-model="Sub", placeholder="Subject…")
         span1 ...
         input.span2.btn.success(type="submit", value="submit")
+    h3 {{selected.node.name}}
     canvas#graphCanvas(width="800", height="600", ng-click="click($event)")
 
 block append scripts
