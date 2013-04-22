@@ -14,19 +14,16 @@ window.EditCtrl = ($scope, $http) ->
         y: $event.offsetY
 
       # use arbor to find the nearest node
-
-      # use arbor to find the nearest node
       $scope.selected = @sys.nearest(p)
 
       # if we found one and the click was close enough
       if $scope.selected.node && $scope.selected.distance < 25
-        console.log $scope.selected, $scope.selected.node.name
-        # @canvas = $('#graphCanvas').get 0
-        # @ctx = @canvas.getContext "2d"
-        # @ctx.beginPath null
-        # @ctx.moveTo selected.screenPoint.x - 10, selected.screenPoint.y - 10
-        # @ctx.fillStyle = "#500"
-        # @ctx.fillText selected.node.name, selected.screenPoint.x, selected.screenPoint.y
+        # Log click event
+        console.log $event, $scope.selected, $scope.selected.node.name
+
+        # If middle mouse then delete the node
+        if $event.button == 1
+          $scope.deleteNode $event
 
       return false
 

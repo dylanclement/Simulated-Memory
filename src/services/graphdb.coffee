@@ -108,7 +108,8 @@ module.exports = class GraphDB
   Creates a relationship between two objects
   ###
   createRelation: (obj, sub, relationship, callback) ->
-    log.info "Creating Relationship #{obj}, #{relationship}, #{sub}"
+    relName = "#{obj.data.name}->#{relationship}->#{sub.data.name}"
+    log.info "Creating Relationship #{obj.data.name}, #{relationship}, #{sub.data.name}"
     @getRelationship obj.data.name, sub.data.name, relationship, (err, rel) =>
       if err then return callback err
       if rel
@@ -118,11 +119,17 @@ module.exports = class GraphDB
       else
         # relationship doesn't exist so create it
         obj.createRelationshipTo sub, relationship, { access_count : 0, created_at : new Date }, (err, rel) =>
+          if err then return callback err
+
           rel.save (err, savedRel) =>
+            if err then return callback err
+
             # todo could potentially insert a duplicate relationship before we've created an index
             log.info "Created edge #{relName}"
-            savedRel.index @REL_INDEX_NAME, relationship, relName, (err, indexedRel) ->
-              callback null, indexedRel
+            savedRel.index @REL_INDEX_NAME, relationship, relName, (err) ->
+              if err then return callback err
+
+              callback null, rel
 
   ###
   Shorthand for creating a obj-rel-sub
@@ -131,10 +138,14 @@ module.exports = class GraphDB
     log.info "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
       if err then return callback err
+
       @createObject { name: subName, access_count: 0 }, (err, sub) =>
         if err then return callback err
+
         @createRelation obj, sub, relName, (err, rel) =>
           if err then return callback err
+
+          #console.log { obj, rel, sub }, 'Created relationship'
           callback null, obj, rel, sub
 
 

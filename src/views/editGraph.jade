@@ -2,11 +2,15 @@ extends layout
 
 block content
   h2= title
-  p.lead Here we can use the graph to edit the data.
-  btn
   div(ng-controller="EditCtrl")
-    h3 {{selected.node.name}}
-    a.btn(href="", ng-click="deleteNode($event)") Delete Node
+    .row
+      .span6
+        p.lead Here we can use the graph to edit the data.
+        p Middle mouse button to delete a node
+      .span4
+
+        span.span2 Name:
+        span.span2 {{selected.node.name}}
     canvas#graphCanvas(width="800", height="600", ng-click="click($event)")
 
 block append scripts

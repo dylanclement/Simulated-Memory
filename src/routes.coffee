@@ -13,7 +13,7 @@ exports.index = (req, res) ->
 exports.calculations = (req, res) ->
   res.render 'calculations', title: 'In4mahcy'
 
-# [push]
+# [post]
 # Save a relationship
 exports.relationship = (req, res, next) ->
   body = req.body
