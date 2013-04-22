@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h2= title
+  p.lead Here we can use the graph to edit the data.
+  btn
+  div(ng-controller="EditCtrl")
+    h3 {{selected.node.name}}
+    a.btn(href="", ng-click="deleteNode($event)") Delete Node
+    canvas#graphCanvas(width="800", height="600", ng-click="click($event)")
+
+block append scripts
+  != js('graphRenderer')
+  != js('editCtrl')

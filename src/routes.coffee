@@ -1,6 +1,7 @@
 fs = require 'fs'
 moment = require 'moment'
 async = require 'async'
+{log} = require './services/log.coffee'
 _ = require 'underscore'
 # [get]
 # Gets the index page
@@ -32,7 +33,35 @@ exports.relationships = (req, res, next) ->
   db.cypher query, {}, (err, results) ->
     if err then return next err
     res.send results.map (result) ->
-        [result.obj, result.rel, result.sub]
+      [result.obj, result.rel, result.sub]
+
+# [del]
+# deletes a relationship
+exports.deleteNode = (req, res, next) ->
+  body = req.body
+  db = req.db
+  obj = req.params.obj
+  db.deleteObject obj, (err, result) ->
+    if err then return next err
+    if !result
+      log.warn { obj }, 'Unable to find object to delete'
+
+    res.send "Deleted object #{obj}"
+
+# [del]
+# deletes a relationship
+exports.deleteRelationship = (req, res, next) ->
+  body = req.body
+  db = req.db
+  {obj, rel, sub} = req.params
+  db.getRelationship obj, rel, sub, (err, result) ->
+    if err then return next err
+    if !result
+      log.warn "Unable to find relationship to delete #{obj}->#{rel}->#{sub}"
+      res.redirect 'back'
+
+    result.delete null
+    res.send "Deleted relationship #{obj}->#{rel}->#{sub}"
 
 # [get]
 # Gets all objects
@@ -126,6 +155,9 @@ fileLoad = (rwq, res, next, db, fileName) ->
         cbs.push (callback) ->
           db.create ors.obj, ors.rel, ors.sub, callback
     async.series cbs
+
+exports.editGraph = (req, res, next) ->
+  res.render 'editGraph', title: 'In4mahcy'
 
 exports.loadFromFile = (req, res, next) ->
   fileLoad req, res, next, req.db, 'data/relations.json'

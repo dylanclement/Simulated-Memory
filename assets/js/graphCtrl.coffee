@@ -7,29 +7,6 @@ window.GraphCtrl = ($scope, $http) ->
       $scope.data = data
       @sys.graft data
 
-    $scope.click = ($event) =>
-      # get the mouse coordinates
-      p =
-        x: $event.offsetX
-        y: $event.offsetY
-
-      # use arbor to find the nearest node
-
-      # use arbor to find the nearest node
-      $scope.selected = @sys.nearest(p)
-
-      # if we found one and the click was close enough
-      if $scope.selected.node && $scope.selected.distance < 25
-        console.log $scope.selected, $scope.selected.node.name
-        # @canvas = $('#graphCanvas').get 0
-        # @ctx = @canvas.getContext "2d"
-        # @ctx.beginPath null
-        # @ctx.moveTo selected.screenPoint.x - 10, selected.screenPoint.y - 10
-        # @ctx.fillStyle = "#500"
-        # @ctx.fillText selected.node.name, selected.screenPoint.x, selected.screenPoint.y
-
-      return false
-
     $scope.addRel = =>
       Obj = $scope.Obj
       Rel = $scope.Rel
