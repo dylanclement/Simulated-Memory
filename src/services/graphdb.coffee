@@ -43,10 +43,12 @@ module.exports = class GraphDB
     @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) =>
       if (err and err.message.exception == 'NotFoundException') or (!err and !node)
         # object doesn't
-        callback null, null
         log.info "Node #{name} doesn't exist"
-      else if err then return callback err
-      return callback null, node
+        return callback null
+      else if err
+        return callback err
+      else
+        return callback null, node
 
   ###
   Creates an object
@@ -62,42 +64,71 @@ module.exports = class GraphDB
           # TODO! could potentially insert a duplicate object before we've created an index
           savedNode.index @OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) =>
             callback null, savedNode
-        log.info "Created object #{obj.name}"
+        log.info { obj }, 'Created object.'
       else if err
         return callback err
       else if node
         # object exists so increment the access count
-        log.info "Returning object #{obj.name}"
+        log.info { obj }, 'Return existing object.'
         node.data.access_count += 1
         node.save callback
 
   ###
+  Deletes a object
+  ###
+  deleteObject: (obj, callback) ->
+    @getObject obj, (err, result) ->
+      if err then return callback err
+      if !result
+        log.warn { obj }, 'Unable to find object to delete'
+        return callback null
+
+      delFunc = (err) ->
+        if err then return callback err
+        log.info { obj }, 'Deleted object'
+        callback null, obj
+
+      result.delete delFunc, true
+
+  ###
   Gets a relationship between two objects
   ###
-  createRelation: (obj, sub, relationship, callback) ->
-    relName = "#{obj.data.name}->#{relationship}->#{sub.data.name}"
-    # see if the relationship exists, if it does increment the access count, otherwise create it
+  getRelationship: (obj, sub, relationship, callback) ->
+    relName = "#{obj}->#{relationship}->#{sub}"
     @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) =>
-      if (err and err.message.exception == 'NotFoundException') or (!err and !rel)
+      if (err && err.message.exception == 'NotFoundException') || (!err && !rel)
+        #log.info { obj, relationship, sub}, 'Attempt to get relationship that doesn\'t exist'
+        return callback null
+      else if err
+        return callback err
+      else if rel
+        callback null, rel
+
+  ###
+  Creates a relationship between two objects
+  ###
+  createRelation: (obj, sub, relationship, callback) ->
+    log.info "Creating Relationship #{obj}, #{relationship}, #{sub}"
+    @getRelationship obj.data.name, sub.data.name, relationship, (err, rel) =>
+      if err then return callback err
+      if rel
+        log.info "Relationship #{relName} exists, incrementing access count."
+        rel.data.access_count += 1
+        rel.save callback
+      else
         # relationship doesn't exist so create it
         obj.createRelationshipTo sub, relationship, { access_count : 0, created_at : new Date }, (err, rel) =>
           rel.save (err, savedRel) =>
             # todo could potentially insert a duplicate relationship before we've created an index
-            savedRel.index @REL_INDEX_NAME, relationship, relName, (err, indexedRel) =>
-              callback null, savedRel
-          log.info "Created edge #{relName}"
-      else if err
-        return callback err
-      else if rel
-        log.info "Relationship #{relName} exists, incrementing access count."
-        rel.data.access_count += 1
-        rel.save callback
+            log.info "Created edge #{relName}"
+            savedRel.index @REL_INDEX_NAME, relationship, relName, (err, indexedRel) ->
+              callback null, indexedRel
 
   ###
   Shorthand for creating a obj-rel-sub
   ###
   create: (objName, relName, subName, callback) ->
-    console.log "Creating #{objName}, #{relName}, #{subName}"
+    log.info "Creating #{objName}, #{relName}, #{subName}"
     @createObject { name: objName, access_count: 0 }, (err, obj) =>
       if err then return callback err
       @createObject { name: subName, access_count: 0 }, (err, sub) =>
@@ -125,8 +156,7 @@ module.exports = class GraphDB
   getAllObjects: (callback) ->
     query = [
       'START n=node(*)',
-      'RETURN n'
-    ].join '\n'
+      'RETURN n'].join '\n'
     @db.query query, nodes: '*', (err, results) ->
       if err then return callback err
       callback null, results

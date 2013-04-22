@@ -30,16 +30,20 @@ app.configure 'development', ->
 
 # set up routes
 app.get '/', routes.index
+app.all '/calculations*', express.basicAuth('admin','aapkop')
 app.get '/calculations', routes.calculations
 app.get '/objects', setDb, routes.objects
 app.get '/relationships', setDb, routes.relationships
 app.post '/relationship', setDb, routes.relationship
+app.del '/relationship/:obj', setDb, routes.deleteNode
+app.del '/relationship/:obj/:rel/:sub', setDb, routes.deleteRelationship
 
 app.get '/clearDB', setDb, routes.clearDB
 app.get '/relationships/save', setDb, routes.saveToFile
 app.get '/relationships/load', setDb, routes.loadFromFile
 app.get '/relationships/load-demo', setDb, routes.loadDemoFromFile
 
+app.get '/graph/edit', setDb, routes.editGraph
 app.get '/graphData/arbor', setDb, routes.getGraphDataArbor
 app.get '/conclusion/is_a_category', setDb, routes.categories
 app.get '/conclusion/popular_relationships', setDb, routes.getRelationshipsOrderedByUse
