@@ -10,9 +10,9 @@ block content
       .span4
 
         span.span2 Name:
-        span.span2 {{selected.node.name}}
+        span.span2(ng-bind="selected.node.name")
     canvas#graphCanvas(width="800", height="600", ng-click="click($event)")
 
 block append scripts
   != js('graphRenderer')
-  != js('editCtrl')
+  != js('controllers/editCtrl')
