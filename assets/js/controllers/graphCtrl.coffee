@@ -1,4 +1,4 @@
-window.GraphCtrl = ($scope, $http) ->
+window.GraphCtrl = ['$scope', '$http', ($scope, $http) ->
     @sys = arbor.ParticleSystem 1000, 800, 0.5  # create the system with sensible repulsion/stiffness/friction
     @sys.renderer = new window.GraphRenderer "#graphCanvas" # our newly created renderer will have its .init() method called shortly by sys...
     # call the rest api endpoint to get the data
@@ -15,3 +15,4 @@ window.GraphCtrl = ($scope, $http) ->
       # add the relationship to the graph and to the db
       $http.post('/relationship', { Obj, Rel, Sub }).success (success) =>
         @sys.addEdge Obj, Sub, { name: Rel }
+]
