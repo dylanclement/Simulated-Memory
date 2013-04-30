@@ -125,6 +125,19 @@ exports.categories = (req, res, next) ->
     res.send results
 
 # [get]
+# gets a grouped collection
+exports.relations = (req, res, next) ->
+  body = req.body
+  db = req.db
+  query = ['START n=node(*)',
+     'MATCH p=n-->o<--m',
+     'RETURN n.name, m.name, count(p) as countp',
+     'ORDER BY countp DESC'].join '\n'
+  db.cypher query, {}, (err, results) ->
+    if err then return next err
+    res.send results
+
+# [get]
 # gets relationships ordered by use
 exports.getRelationshipsOrderedByUse = (req, res, next) ->
   db = req.db

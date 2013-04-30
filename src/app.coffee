@@ -46,7 +46,7 @@ app.get '/relationships/load-demo', setDb, routes.loadDemoFromFile
 app.get '/graph/edit', setDb, routes.editGraph
 app.get '/graphData/arbor', setDb, routes.getGraphDataArbor
 app.get '/conclusion/is_a_category', setDb, routes.categories
+app.get '/conclusion/relations', setDb, routes.relations
 app.get '/conclusion/popular_relationships', setDb, routes.getRelationshipsOrderedByUse
 # start listening
 app.listen app.get('port'), ->  log.info "server listening on http://localhost:#{app.get 'port'}."
-
