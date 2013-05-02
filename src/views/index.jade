@@ -4,16 +4,20 @@ block content
   h2= title
   p.lead Welcome to #{title}, here we use relations between objects to draw conclusions, analyse patterns and run custom logic on the information provided. The goal is to have the memory as a organic graph, growing and retracting.
   div(ng-controller="GraphCtrl")
+    form#textParse.form-inline(ng-submit="parseText()")
+      textarea#inText.span12(rows=8, ng-model="inputText")
+      input.btn.success(type="submit", value="submit")
+
     form#addrel.form-inline(ng-submit="addRel()")
       row
-        input.span2(type="text", name="Obj", ng-model="Obj", placeholder="Object Name…")
+        input.span2(type="text", name="Obj", ng-model="object", placeholder="Object Name…")
         span1 ->
-        select(name='Rel', ng-model="Rel")
+        select(name='Rel', ng-model="relationship")
           option(value='is_a', selected='selected') is a
           option(value='eats' ) eats
           option(value='likes' ) likes
         span1 ->
-        input.span2(type="text", name="Sub", ng-model="Sub", placeholder="Subject…")
+        input.span2(type="text", name="Sub", ng-model="subject", placeholder="Subject…")
         span1 ...
         input.span2.btn.success(type="submit", value="submit")
     canvas#graphCanvas(width="800", height="600")
