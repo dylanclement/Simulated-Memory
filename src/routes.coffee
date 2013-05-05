@@ -6,12 +6,12 @@ _ = require 'underscore'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
-  res.render 'index', title: 'In4mahcy'
+  res.render 'index', title: 'Simulation of Artificial Memory'
 
 # [get]
 # Gets the calculations page
 exports.calculations = (req, res) ->
-  res.render 'calculations', title: 'In4mahcy'
+  res.render 'calculations', title: 'Simulation of Artificial Memory'
 
 # [post]
 # Save a relationship
@@ -170,7 +170,7 @@ fileLoad = (rwq, res, next, db, fileName) ->
     async.series cbs
 
 exports.editGraph = (req, res, next) ->
-  res.render 'editGraph', title: 'In4mahcy'
+  res.render 'editGraph', title: 'Simulation of Artificial Memory'
 
 exports.loadFromFile = (req, res, next) ->
   fileLoad req, res, next, req.db, 'data/relations.json'

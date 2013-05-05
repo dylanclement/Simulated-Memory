@@ -1,8 +1,8 @@
 {
-  "name": "in4mahcy",
-  "version": "0.0.2",
+  "name": "SAM",
+  "version": "0.1.0",
   "author": "Dylan Clement",
-  "description": "Information Management ++",
+  "description": "Simulation of Artificial Memory",
   "main": "./server.js",
   "dependencies" : {
     "async": "0.2.x",
