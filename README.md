@@ -1,8 +1,8 @@
-in4mahcy
+Simulation of Artificial Memory
 ========
 
 # What?#
-In4mahcy is an information management experiment that combines a graph database to store information and an asynchronous control centre to handle large volumes of operations.
+SAM is an information management experiment that combines a graph database to store information and an asynchronous control centre to handle large volumes of operations.
 
 Al information will in its simples form be represented as a relationship between an object and a subject, for example:
 
@@ -15,7 +15,7 @@ This serves as a building block to build vast volumes of interconnected nodes, t
 
 # Screenshot#
 
-![screenshot](https://github.com/dylanclement/in4mahcy/raw/master/src/public/images/screenshot.png 'Screenshot of the app')
+![screenshot](https://github.com/dylanclement/SAM/raw/master/src/public/images/screenshot.png 'Screenshot of the app')
 
 # Project Board#
 https://trello.com/board/a-n-t/505e5311349fc8d53ecdf5dd
