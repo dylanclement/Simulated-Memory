@@ -43,6 +43,7 @@ app.get '/relationships/save', setDb, routes.saveToFile
 app.get '/relationships/load', setDb, routes.loadFromFile
 app.get '/relationships/load-demo', setDb, routes.loadDemoFromFile
 
+app.post '/graph/cypher', setDb, routes.execCypher
 app.get '/graph/edit', setDb, routes.editGraph
 app.get '/graphData/arbor', setDb, routes.getGraphDataArbor
 app.get '/conclusion/is_a_category', setDb, routes.categories

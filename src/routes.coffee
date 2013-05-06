@@ -25,7 +25,6 @@ exports.relationship = (req, res, next) ->
 # [get]
 # gets a grouped collection
 exports.relationships = (req, res, next) ->
-  body = req.body
   db = req.db
   query = ['START n=node(*)',
     'MATCH n-[p]->m',
@@ -38,7 +37,6 @@ exports.relationships = (req, res, next) ->
 # [del]
 # deletes a relationship
 exports.deleteNode = (req, res, next) ->
-  body = req.body
   db = req.db
   obj = req.params.obj
   db.deleteObject obj, (err, result) ->
@@ -51,7 +49,6 @@ exports.deleteNode = (req, res, next) ->
 # [del]
 # deletes a relationship
 exports.deleteRelationship = (req, res, next) ->
-  body = req.body
   db = req.db
   {obj, rel, sub} = req.params
   db.getRelationship obj, rel, sub, (err, result) ->
@@ -66,7 +63,6 @@ exports.deleteRelationship = (req, res, next) ->
 # [get]
 # Gets all objects
 exports.objects = (req, res, next) ->
-  body = req.body
   db = req.db
   db.getAllObjects (err, results) ->
     if err then return next err
@@ -79,7 +75,6 @@ exports.objects = (req, res, next) ->
 # [get]
 # Gets data in a format that arbor.js can use to display in a graph
 exports.getGraphDataArbor = (req, res, next) ->
-  body = req.body
   db = req.db
   query = ['START n=node(*)',
     'MATCH n-[p]->m',
@@ -106,7 +101,6 @@ exports.getGraphDataArbor = (req, res, next) ->
 # [get]
 # Clears the database
 exports.clearDB = (req, res, next) ->
-  body = req.body
   db = req.db
   db.clear (err) ->
     if err then return next err
@@ -115,7 +109,6 @@ exports.clearDB = (req, res, next) ->
 # [get]
 # gets a grouped collection
 exports.categories = (req, res, next) ->
-  body = req.body
   db = req.db
   query = ['START n=node(*)',
     'MATCH n-[:is_a]->m',
@@ -127,7 +120,6 @@ exports.categories = (req, res, next) ->
 # [get]
 # gets a grouped collection
 exports.relations = (req, res, next) ->
-  body = req.body
   db = req.db
   query = ['START n=node(*)',
      'MATCH p=n-->o<--m',
@@ -147,7 +139,6 @@ exports.getRelationshipsOrderedByUse = (req, res, next) ->
     res.send results
 
 exports.saveToFile = (req, res, next) ->
-  body = req.body
   db = req.db
   db.getAllRelationships (err, results) ->
     if err then return next err
@@ -168,6 +159,13 @@ fileLoad = (rwq, res, next, db, fileName) ->
         cbs.push (callback) ->
           db.create ors.obj, ors.rel, ors.sub, callback
     async.series cbs
+
+exports.execCypher = (req, res, next) ->
+  db = req.db
+  query = req.body.query
+  db.cypher query, {}, (err, results) ->
+    if err then return next err
+    res.json results
 
 exports.editGraph = (req, res, next) ->
   res.render 'editGraph', title: 'Simulation of Artificial Memory'
