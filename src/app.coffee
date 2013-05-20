@@ -29,6 +29,7 @@ app.configure 'development', ->
   app.use express.errorHandler( dumpExceptions: true, showStack: true)
 
 # set up routes
+# read http://info.apigee.com/Portals/62317/docs/web%20api.pdf before adding routes
 app.get '/', routes.index
 app.all '/calculations*', express.basicAuth('admin','aapkop')
 app.get '/calculations', routes.calculations

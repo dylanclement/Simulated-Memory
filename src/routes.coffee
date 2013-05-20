@@ -84,7 +84,7 @@ exports.getGraphDataArbor = (req, res, next) ->
     data =
       nodes: {}
       edges: {}
-    results.map (result) ->
+    for result in results
       # Create the nodes
       data.nodes[result.obj] ?= {}
       data.nodes[result.sub] ?= {}
@@ -164,8 +164,10 @@ exports.execCypher = (req, res, next) ->
   db = req.db
   query = req.body.query
   db.cypher query, {}, (err, results) ->
-    if err then return next err
-    res.json results
+    if err then next err
+    data = JSON.stringify results
+    log.info {data, query}, 'Results from query'
+    res.json "#{data}"
 
 exports.editGraph = (req, res, next) ->
   res.render 'editGraph', title: 'Simulation of Artificial Memory'
