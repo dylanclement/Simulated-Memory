@@ -1,22 +1,33 @@
 extends layout
 
 block content
-  h1= title
-  p.lead Here is where we do calculaitons on the data
-  .row
-    .span6.group-box
-      h4 General
-      a.btn(href='/objects') Objects
-      a.btn(href='/relationships') All
-  .row
-    .span6.group-box
-      h4 Conclusions
-      a.btn(href='/conclusion/is_a_category') Categories
-      a.btn(href='/conclusion/popular_relationships') Popular relationships
-      a.btn(href='/conclusion/relations') Relations
-    .span5.group-box
-      h4 Data Management
-      a.btn(href='/relationships/save') Save
-      a.btn(href='/relationships/load') Load
-      a.btn(href='/relationships/load-demo') Load Demo
-      a.btn(href='/clearDB') Clear All
+  div(ng-controller="CalculationsCtrl")
+    h1= title
+    p.lead Here is where we do calculaitons on the data
+    .row
+      .span6.group-box
+        h4 General
+        a.btn(href='/objects') Objects
+        a.btn(href='/relationships') All
+      .span5.group-box
+        h4 Data Management
+        a.btn(href='/relationships/save') Save
+        a.btn(href='/relationships/load') Load
+        a.btn(href='/relationships/load-demo') Load Demo
+        a.btn(href='/clearDB') Clear All
+    .row
+      .span6.group-box
+        h4 Conclusions
+        a.btn(href='/conclusion/is_a_category') Categories
+        a.btn(href='/conclusion/popular_relationships') Popular relationships
+        a.btn(href='/conclusion/relations') Relations
+    .row
+      .span12.group-box
+        h4 Cypher queries
+        form#textParse.form-inline(ng-submit="execCypher()")
+          textarea#cypherTextArea(rows=8, ng-model="cypherText")
+          input.btn.success(type="submit", value="execute")
+        textarea#resultText(rows=8, readonly=true, ng-model="resultText")
+
+block append scripts
+  != js('controllers/calculationsCtrl')
