@@ -1,17 +1,17 @@
-Simulation of Artificial Memory
+Simulated Memory
 ========
 
 # What?#
-SAM is an information management experiment that combines a graph database to store information and an asynchronous control centre to handle large volumes of operations.
+An information management experiment that combines a graph database to store information and an asynchronous control centre to manage large volumes of operations on the data.
 
-Al information will in its simples form be represented as a relationship between an object and a subject, for example:
+Al information will in its simplest form be represented as a relationship between an object and a subject, for example:
 
     dog                                    is_a                                     animal
       access_count: 5                         access_count: 123                        access_count: 43
       created_at: now.addYears(-5)   -->>     created_at: now             -->>         created_at: now.addYears(-8)
       created_by: Online article              created_by: data entry # 123             created_by: parent
 
-This serves as a building block to build vast volumes of interconnected nodes, that can be queried and checked for patterns.
+This serves as a building block to construct vast volumes of interconnected nodes, that can be queried and checked for patterns.
 
 # Screenshot#
 
