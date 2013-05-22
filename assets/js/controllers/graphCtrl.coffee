@@ -8,16 +8,7 @@ window.GraphCtrl = ['$scope', '$http', ($scope, $http) ->
       $scope.data = data
       @sys.graft data
 
-    $scope.addRel = =>
-      Obj = $scope.object
-      Rel = $scope.relationship
-      Sub = $scope.subject
-
-      # add the relationship to the graph and to the db
-      $http.post('/relationship', { Obj, Rel, Sub }).success (success) =>
-        @sys.addEdge Obj, Sub, { name: Rel }
-
-    $scope.parseText = ->
+    $scope.parseText = =>
       text = $scope.inputText
       # This will do a match for the following:
       #  a dog is a animal
@@ -29,4 +20,7 @@ window.GraphCtrl = ['$scope', '$http', ($scope, $http) ->
         $scope.object = object.toLowerCase()
         $scope.relationship = 'is_a'
         $scope.subject = subject.toLowerCase()
+        # add the relationship to the graph and to the db
+        $http.post('/relationship', { Obj: $scope.object, Rel: $scope.relationship, Sub: $scope.subject }).success (success) =>
+          @sys.addEdge $scope.object, $scope.subject, { name: $scope.relationship }
 ]

@@ -3,6 +3,11 @@ window.CalculationsCtrl = ['$scope', '$http', ($scope, $http) ->
       'RETURN n.name'
     $scope.resultText = ''
 
+
+    $scope.addRel = =>
+      # add the relationship to the graph and to the db
+      $http.post('/relationship', { Obj: $scope.object, Rel: $scope.relationship, Sub: $scope.subject })
+
     # call the rest api endpoint to get the data
     $scope.execCypher = =>
       # add the relationship to the graph and to the db

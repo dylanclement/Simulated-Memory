@@ -4,6 +4,17 @@ block content
   div(ng-controller="CalculationsCtrl")
     h1= title
     p.lead Here is where we do calculaitons on the data
+    form#addrel.form-inline(ng-submit="addRel()")
+      row
+        input(type="text", name="Obj", ng-model="object", placeholder="Object Name…")
+        select(name='Rel', ng-model="relationship")
+          option(value='is_a', selected='selected') is a
+          option(value='eats' ) eats
+          option(value='likes' ) likes
+        input(type="text", name="Sub", ng-model="subject", placeholder="Subject…")
+        ...
+        input.btn.success(type="submit", value="submit")
+
     .row
       .span6.group-box
         h4 General
