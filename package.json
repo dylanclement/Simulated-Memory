@@ -1,8 +1,8 @@
 {
-  "name": "SAM",
+  "name": "Simulated-Memory",
   "version": "0.1.0",
   "author": "Dylan Clement",
-  "description": "Simulation of Artificial Memory",
+  "description": "Simulated Memory",
   "main": "./server.js",
   "dependencies" : {
     "async": "0.2.x",

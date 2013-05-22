@@ -6,12 +6,12 @@ _ = require 'underscore'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
-  res.render 'index', title: 'Simulation of Artificial Memory'
+  res.render 'index', title: 'Simulated Memory'
 
 # [get]
 # Gets the calculations page
 exports.calculations = (req, res) ->
-  res.render 'calculations', title: 'Simulation of Artificial Memory'
+  res.render 'calculations', title: 'Simulated Memory'
 
 # [post]
 # Save a relationship
