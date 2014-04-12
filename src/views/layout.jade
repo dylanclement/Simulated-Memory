@@ -1,5 +1,5 @@
-doctype 5
-html(lang="en", ng-app)
+doctype html
+html(lang='en', ng-app)
   head
     title= title
     meta(name='description', content='A data management system using relationships between entities to store data.')
@@ -18,9 +18,7 @@ html(lang="en", ng-app)
         document.createElement('ng:view');
     block stylesheets
       link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
-      //link(rel='stylesheet', href='/stylesheets/style.css')
       != css('style')
-
   body
     div.container
       div.navbar

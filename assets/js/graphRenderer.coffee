@@ -53,6 +53,6 @@ class GraphRenderer
       @ctx.strokeStyle = '#003300';
       @ctx.stroke null
       @ctx.fillStyle = "#000"
-      @ctx.fill null
+      # @ctx.fill null
 
 window.GraphRenderer = GraphRenderer

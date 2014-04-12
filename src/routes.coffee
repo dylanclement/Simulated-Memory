@@ -2,7 +2,7 @@ fs = require 'fs'
 moment = require 'moment'
 async = require 'async'
 {log} = require './services/log.coffee'
-_ = require 'underscore'
+_ = require 'lodash'
 # [get]
 # Gets the index page
 exports.index = (req, res) ->
