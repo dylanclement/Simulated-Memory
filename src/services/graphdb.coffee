@@ -41,7 +41,7 @@ module.exports = class GraphDB
   getObject: (name, callback) ->
     # see if the object exists
     @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) =>
-      if (err and err.message.exception == 'NotFoundException') or (!err and !node)
+      if (err && /NotFoundException/.test err.message) || (!err && !node)
         # object doesn't
         log.info "Node #{name} doesn't exist"
         return callback null
@@ -56,7 +56,7 @@ module.exports = class GraphDB
   createObject: (obj, callback) ->
     # see if the object exists
     @db.getIndexedNode @OBJ_INDEX_NAME, 'name', obj.name, (err, node) =>
-      if (err and err.message.exception == 'NotFoundException') or (!err and !node)
+      if (err && /NotFoundException/.test err.message) || (!err && !node)
         # object doesn't exist so create it
         obj.created_at = new Date
         node = @db.createNode obj
@@ -96,7 +96,7 @@ module.exports = class GraphDB
   getRelationship: (obj, sub, relationship, callback) ->
     relName = "#{obj}->#{relationship}->#{sub}"
     @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) =>
-      if (err && err.message.exception == 'NotFoundException') || (!err && !rel)
+      if (err && /NotFoundException/.test err.message) || (!err && !rel)
         #log.info { obj, relationship, sub}, 'Attempt to get relationship that doesn\'t exist'
         return callback null
       else if err
