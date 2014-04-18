@@ -26,10 +26,10 @@
     "node-inspector": "0.7.x"
   },
   "scripts": {
-    "start": "supervisor -i src -e assets/js server.js | ./node_modules/bunyan/bin/bunyan",
-    "run": "coffee ./src/app.coffee | node_modules/bunyan/bin/bunyan",
+    "start": "coffee ./src/app.coffee | bunyan",
+    "watch": "supervisor -i src/public,src/views -e js,coffee,json -w src server | bunyan",
+    "debug": "npm run inspector; node --debug server | bunyan",
     "inspector": "if [[ ! $(ps | grep -v grep | grep node-inspector) ]]; then (node-inspector &); fi",
-    "debug": "npm run-script inspector; node --debug server",
     "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script",
     "migrate": "make migrate"
   },
