@@ -1,7 +1,7 @@
 fs = require 'fs'
 moment = require 'moment'
 async = require 'async'
-{log} = require './services/log.coffee'
+{log} = require './services/log'
 _ = require 'lodash'
 # [get]
 # Gets the index page

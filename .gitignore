@@ -4,5 +4,6 @@
 *.sublime-*
 node_modules
 iisnode
+build
 /logs
 /data

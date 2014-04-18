@@ -1,5 +1,5 @@
 neo4j = require 'neo4j'
-{log} = require './log.coffee'
+{log} = require './log'
 
 module.exports = class GraphDB
 
@@ -29,7 +29,7 @@ module.exports = class GraphDB
   # Gets an object from the db
   getObject: (name, cb) ->
     # see if the object exists
-    @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) =>
+    @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) ->
       if (err && /NotFoundException/.test err.message) || (!err && !node)
         # object doesn't exist
         log.info "Node #{name} doesn't exist"
@@ -86,7 +86,7 @@ module.exports = class GraphDB
   # Gets a relationship between two objects
   getRelationship: (obj, sub, relationship, cb) ->
     relName = "#{obj}->#{relationship}->#{sub}"
-    @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) =>
+    @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) ->
       if (err && /NotFoundException/.test err.message) || (!err && !rel)
         #log.info { obj, relationship, sub}, 'Attempt to get relationship that doesn\'t exist'
         return cb null
@@ -129,7 +129,7 @@ module.exports = class GraphDB
       @createObject { name: subName, access_count: 0 }, (err, sub) =>
         if err then return cb err
 
-        @createRelation obj, sub, relName, (err, rel) =>
+        @createRelation obj, sub, relName, (err, rel) ->
           if err then return cb err
 
           cb null, obj, rel, sub

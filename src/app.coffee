@@ -2,29 +2,30 @@ express = require 'express'
 routes = require './routes'
 http = require 'http'
 path = require 'path'
-graphdb = require './services/graphdb.coffee'
-{log} = require './services/log.coffee'
+GraphDb = require './services/graphdb'
+{log} = require './services/log'
 # Connect to DB's
-db = new graphdb process.env.NEO4J_URL || 'http://localhost:7474'
+db = new GraphDb process.env.NEO4J_URL || 'http://localhost:7474'
 
 # middleware method to set the database
 setDb = (req, res, next) ->
-  req.db = db;
+  req.db = db
   next()
 
 # create express app
 app = express()
 app.configure ->
   app.set 'port', process.env.PORT || 3618
-  app.set 'views', __dirname + '/views'
+  app.set 'views', './views'
   app.set 'view engine', 'jade'
   app.use express.favicon("#{__dirname}/public/images/favicon.ico")
   app.use express.logger 'dev'
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
+  app.use require('connect-livereload')()
   app.use express.static(path.join __dirname, 'public')
-  app.use require('connect-assets')( )
+  app.use require('connect-assets')()
 app.configure 'development', ->
   app.use express.errorHandler( dumpExceptions: true, showStack: true)
 
