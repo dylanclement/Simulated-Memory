@@ -1,5 +1,3 @@
-*.log
-*.logs
 *.orig
 *.sublime-*
 node_modules

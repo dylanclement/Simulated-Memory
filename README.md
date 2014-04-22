@@ -15,7 +15,7 @@ This serves as a building block to construct vast volumes of interconnected node
 
 # Screenshot#
 
-![screenshot](https://github.com/dylanclement/SAM/raw/master/client/images/screenshot.png 'Screenshot of the app')
+![screenshot](https://github.com/dylanclement/SAM/raw/master/public/images/screenshot.png 'Screenshot of the app')
 
 # Project Board#
 https://trello.com/board/a-n-t/505e5311349fc8d53ecdf5dd
