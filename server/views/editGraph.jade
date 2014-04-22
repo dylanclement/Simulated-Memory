@@ -14,5 +14,5 @@ block content
     canvas#graphCanvas(width="800", height="600", ng-click="click($event)")
 
 block append scripts
-  != js('graphRenderer')
-  != js('controllers/editCtrl')
+  script(src="/js/graphRenderer.js")
+  script(src="/js/controllers/editCtrl.js")
