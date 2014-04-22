@@ -4,6 +4,11 @@
   "author": "Dylan Clement",
   "description": "Simulated Memory",
   "main": "./server.js",
+  "repository" :
+  { 
+    "type" : "git",
+    "url" : "http://github.com/dylanclement/Simulated-Memory.git"
+  },
   "dependencies": {
     "async": "0.7.x",
     "express": "3.1.x",
@@ -12,12 +17,12 @@
     "neo4j": "1.1.x",
     "less": "1.7.x",
     "lodash": "2.4.x",
+    "winston": "0.7.x",
     "moment": "2.5.x"
   },
   "noAnalyze": true,
   "license": "Apache",
   "devDependencies": {
-    "bunyan": "0.22.x",
     "mocha": "1.18.x",
     "chai": "1.9.x",
     "coffee-script": "1.7.x",
@@ -38,9 +43,9 @@
     "gulp-clean": "~0.2.4"
   },
   "scripts": {
-    "start": "coffee ./server/src/app.coffee | bunyan",
-    "watch": "supervisor -i src/public,src/views -e js,coffee,json -w src server | bunyan",
-    "debug": "npm run inspector; node --debug server | bunyan",
+    "start": "gulp server",
+    "watch": "gulp watch",
+    "debug": "npm run inspector; node --debug server",
     "inspector": "if [[ ! $(ps | grep -v grep | grep node-inspector) ]]; then (node-inspector &); fi",
     "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script",
     "migrate": "make migrate"

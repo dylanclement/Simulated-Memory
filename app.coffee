@@ -23,9 +23,8 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use app.router
-  # app.use require('connect-livereload')()
-  app.use express.compress()
-  app.use express.static './client/vendor'
+  app.use require('connect-livereload')()
+  app.use express.static './public'
   app.use express.static './build/assets'
   app.use require('connect-assets')()
 app.configure 'development', ->

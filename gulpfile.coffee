@@ -16,6 +16,7 @@ watch = require 'gulp-watch'
 gulp.task 'clean', ->
   gulp.src 'build', read: false
     .pipe clean()
+    .on 'error', console.log
 
 # gulp.task 'jade', ->
 #   gulp.src('./server/views/**/*.jade')
@@ -34,12 +35,14 @@ gulp.task 'js', ->
   gulp.src('./client/js/**/*.coffee')
     .pipe coffee()
     .pipe gulp.dest('./build/assets/js')
+    .on 'error', console.log
     # .pipe livereload server
 
 gulp.task 'css', ->
   gulp.src('./client/css/**/*.less')
     .pipe less compress: true
     .pipe gulp.dest './build/assets/css'
+    .on 'error', console.log
     # .pipe livereload server
 
 gulp.task 'server', ['lint', 'css', 'js'], ->
@@ -52,7 +55,7 @@ gulp.task 'watch', ->
   #   server.changed file.path    
   supervisor './app.coffee',
     args: [],
-    watch: [ 'server' ],
+    watch: [ 'server', 'app.coffee' ],
     ignore: [ 'server/views'],
     pollInterval: 500,
     extensions: [ 'js', 'coffee', 'json' ],

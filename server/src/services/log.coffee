@@ -1,3 +1,4 @@
-os = require 'os'
-bunyan = require 'bunyan'
-exports.log = bunyan.createLogger name: "Simulation of Artificial Memory"
+winston = require 'winston'
+moment = require 'moment'
+winston.add winston.transports.File, filename: "#{new moment().format('YYYYMMDDHHmmss')}.log"
+exports.log = winston
