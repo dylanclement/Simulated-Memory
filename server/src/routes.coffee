@@ -20,7 +20,7 @@ exports.relationship = (req, res, next) ->
   db = req.db
   db.create body.Obj, body.Rel, body.Sub, (err, obj, rel, sub) ->
     if err then return next err
-    res.send "saved object #{obj.data.name} -> #{rel.type} -> #{sub.data.name}"
+    res.send "saved object #{obj} -> #{rel} -> #{sub}"
 
 # [get]
 # gets a grouped collection

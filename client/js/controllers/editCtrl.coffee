@@ -18,9 +18,6 @@ window.EditCtrl = ['$scope', '$http', ($scope, $http) ->
 
       # if we found one and the click was close enough
       if $scope.selected.node && $scope.selected.distance < 25
-        # Log click event
-        console.log $event, $scope.selected, $scope.selected.node.name
-
         # If middle mouse then delete the node
         if $event.button == 1
           $scope.deleteNode $event

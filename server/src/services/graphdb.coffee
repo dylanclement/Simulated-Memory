@@ -14,6 +14,7 @@ module.exports = class GraphDB
   # Runs a cypher query
   cypher: (cmd, params, cb) -> @db.query cmd, params, cb
 
+  
   # Clears all the data from the db
   clear: (cb = ->) ->
     log.info 'Clearing database'
@@ -26,113 +27,61 @@ module.exports = class GraphDB
       if err then return cb err
       return cb null
 
+  
   # Gets an object from the db
   getObject: (name, cb) ->
-    # see if the object exists
-    @db.getIndexedNode @OBJ_INDEX_NAME, 'name', name, (err, node) ->
-      if (err && /NotFoundException/.test err.message) || (!err && !node)
-        # object doesn't exist
-        log.info "Node #{name} doesn't exist"
-        return cb null
-      else if err
-        return cb err
-      else
-        return cb null, node
-
-  # Creates an object
-  createObject: (obj, cb) ->
-    # see if the object exists
-    # @db.getIndexedNode @OBJ_INDEX_NAME, 'name', obj.name, (err, node) =>
-    #   if (err && /NotFoundException/.test err.message) || (!err && !node)
-    #     # object doesn't exist so create it
-    #     obj.created_at = new Date
-    #     node = @db.createNode obj
-    #     node.save (err, savedNode) =>
-    #       # TODO! could potentially insert a duplicate object before we've created an index
-    #       savedNode.index @OBJ_INDEX_NAME, 'name', obj.name, (err, indexedNode) =>
-    #         log.info { obj }, 'Created object.'
-    #         cb null, savedNode
-    #   else if err
-    #     return cb err
-    #   else if node
-    #     # object exists so increment the access count
-    #     log.info { obj }, 'Return existing object.'
-    #     node.data.access_count += 1
-    #     node.save cb
     query = [
-      "MERGE (node: name: #{obj.name})",
-      'RETURN node'
+      'MERGE (node { name: {name}})',
+      'ON CREATE SET node.created_at = timestamp()',
+      'ON MATCH SET node.accessCount = node.accessCount + 1',
+      'RETURN node;',
     ].join '\n'
-    @db.query query, {obj}, (err, results) ->
+    @db.query query, {name}, (err, results) ->
       if err then return cb err
-      log.info { obj }, 'Created object.'
-      return cb null
+      log.info { name: results[0].node._data.data }, 'Created object.'
+      return cb null, results[0].node._data.data
 
+  
   # Deletes a object
-  deleteObject: (obj, cb) ->
-    @getObject obj, (err, result) ->
+  deleteObject: (name, cb) ->
+    query = [
+      'MATCH (node { name: {name}})',
+      'OPTIONAL MATCH (node)-[rel]-()',
+      'DELETE node, rel'
+    ].join '\n'
+    log.info 'Deleting node', name
+    @db.query query, {name}, (err, results) ->
       if err then return cb err
-      if !result
-        log.warn { obj }, 'Unable to find object to delete'
-        return cb null
+      log.info { results }, 'Deleted object.'
+      return cb null, results
 
-      delFunc = (err) ->
-        if err then return cb err
-        log.info { obj }, 'Deleted object'
-        cb null, obj
-
-      result.delete delFunc, true
-
-  # Gets a relationship between two objects
-  getRelationship: (obj, sub, relationship, cb) ->
-    relName = "#{obj}->#{relationship}->#{sub}"
-    @db.getIndexedRelationship @REL_INDEX_NAME, relationship, relName, (err, rel) ->
-      if (err && /NotFoundException/.test err.message) || (!err && !rel)
-        #log.info { obj, relationship, sub}, 'Attempt to get relationship that doesn\'t exist'
-        return cb null
-      else if err
-        return cb err
-      else if rel
-        cb null, rel
 
   # Creates a relationship between two objects
-  createRelation: (obj, sub, relationship, cb) ->
-    relName = "#{obj.data.name}->#{relationship}->#{sub.data.name}"
-    log.info "Creating Relationship #{obj.data.name}, #{relationship}, #{sub.data.name}"
-    @getRelationship obj.data.name, sub.data.name, relationship, (err, rel) =>
+  createRelation: (obj, rel, sub, cb) ->
+    query = [
+      'MATCH (obj { name: {obj}}),(sub {name: {sub}})',
+      "MERGE (obj)-[rel:#{rel}]->(sub)",
+      'RETURN obj, rel, sub'
+    ].join '\n'
+    log.info 'Creating relationship',obj, '->', rel, '->', sub
+    @db.query query, {obj, sub}, (err, results) ->
       if err then return cb err
-      if rel
-        log.info "Relationship #{relName} exists, incrementing access count."
-        rel.data.access_count += 1
-        rel.save cb
-      else
-        # relationship doesn't exist so create it
-        obj.createRelationshipTo sub, relationship, { access_count : 0, created_at : new Date }, (err, rel) =>
-          if err then return cb err
-
-          rel.save (err, savedRel) =>
-            if err then return cb err
-
-            # todo could potentially insert a duplicate relationship before we've created an index
-            log.info "Created edge #{relName}"
-            savedRel.index @REL_INDEX_NAME, relationship, relName, (err) ->
-              if err then return cb err
-
-              cb null, rel
+      log.info { results }, 'Deleted object.'
+      return cb null, results
 
   # Shorthand for creating a obj-rel-sub
   create: (objName, relName, subName, cb) ->
     log.info "Creating #{objName}, #{relName}, #{subName}"
-    @createObject { name: objName, access_count: 0 }, (err, obj) =>
+    @getObject objName, (err, obj) =>
       if err then return cb err
 
-      @createObject { name: subName, access_count: 0 }, (err, sub) =>
+      @getObject subName, (err, sub) =>
         if err then return cb err
 
-        @createRelation obj, sub, relName, (err, rel) ->
+        @createRelation obj.name, relName, sub.name, (err, rel) ->
           if err then return cb err
 
-          cb null, obj, rel, sub
+          cb null, obj.name, relName, sub.name
 
 
   # Gets all outgoing relationships from a node
