@@ -1,3 +1,3 @@
 require('coffee-script')
-var app = module.exports = require('./src/app.coffee')
-if (require.main === module) app.run()
+require('coffee-script/register');
+app = module.exports = require('./src/app')
