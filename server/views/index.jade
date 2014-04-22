@@ -10,6 +10,5 @@ block content
     canvas#graphCanvas(width="800", height="600")
 
 block append scripts
-  != js('graphRenderer')
-  != js('controllers/graphCtrl')
-  != js('index')
+  script(src="/js/graphRenderer.js")
+  script(src="/js/controllers/graphCtrl.js")

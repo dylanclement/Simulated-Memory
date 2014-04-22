@@ -7,55 +7,57 @@ supervisor = require 'gulp-supervisor'
 concat = require 'gulp-concat'
 rename = require 'gulp-rename'
 uglify = require 'gulp-uglify'
+clean = require 'gulp-clean'
 livereload = require 'gulp-livereload'
 watch = require 'gulp-watch'
-server = require('tiny-lr')()
+# server = require('tiny-lr')()
 
-# Lint Task
-gulp.task 'lint', ->
-  gulp.src('./src/**/*.coffee')
-    .pipe coffeelint()
-    .pipe coffeelint.reporter()
+# Clean build dir
+gulp.task 'clean', ->
+  gulp.src 'build', read: false
+    .pipe clean()
 
 # gulp.task 'jade', ->
-#   gulp.src('./src/views/**/*.jade')
+#   gulp.src('./server/views/**/*.jade')
 #     .pipe jade pretty: true
 #     .pipe uglify()
 #     .pipe gulp.dest('./build/src')
 #     .pipe livereload server
 
-# gulp.task 'coffee', ->
-#   gulp.src('./src/**/*.coffee')
-#     .pipe coffee()
-#     .pipe gulp.dest('./build/src')
-#     .pipe livereload server
+# Lint Task
+gulp.task 'lint', ->
+  gulp.src('./server/src/**/*.coffee')
+    .pipe coffeelint()
+    .pipe coffeelint.reporter()
 
-# gulp.task 'less', ->
-#   gulp.src('./assets/css/**/*.less')
-#     .pipe less compress: true
-#     .pipe gulp.dest './build/assets/css'
-#     .pipe livereload server
+gulp.task 'js', ->
+  gulp.src('./client/js/**/*.coffee')
+    .pipe coffee()
+    .pipe gulp.dest('./build/assets/js')
+    # .pipe livereload server
 
-gulp.task 'server', ->
-  require('./build/src/app')
+gulp.task 'css', ->
+  gulp.src('./client/css/**/*.less')
+    .pipe less compress: true
+    .pipe gulp.dest './build/assets/css'
+    # .pipe livereload server
+
+gulp.task 'server', ['lint', 'css', 'js'], ->
+  require './app'
 
 gulp.task 'watch', ->
-  supervisor './src/app.coffee',
+  gulp.watch './client/js/**/*.coffee', ['lint', 'js']
+  gulp.watch './client/css/**/*.less', ['css']
+  # gulp.watch('./build/**').on 'change', (file) ->
+  #   server.changed file.path    
+  supervisor './app.coffee',
     args: [],
-    watch: [ 'src' ],
-    ignore: [ 'src/public', 'src/views' ],
+    watch: [ 'server' ],
+    ignore: [ 'server/views'],
     pollInterval: 500,
     extensions: [ 'js', 'coffee', 'json' ],
     exec: 'coffee',
 
-
-# gulp.task 'watch', ['server'], ->
-#   server.listen 35729, (err) -> if err then return console.error err
-#   gulp.watch './src/**/*.coffee', ['coffee', 'lint']
-#   # gulp.watch './src/**/*.jade', ['jade']
-#   gulp.watch './assets/css/**/*.less', ['less']
-#   gulp.watch('./build/**').on 'change', (file) ->
-#     server.changed file.path    
-
 # Default Task
+gulp.task 'build', ['clean', 'coffee', 'jade', 'css']
 gulp.task 'default', ['lint', 'watch']
