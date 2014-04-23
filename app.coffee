@@ -1,7 +1,13 @@
 express = require 'express'
-routes = require './server/src/routes'
 http = require 'http'
 path = require 'path'
+bodyParser = require 'body-parser'
+favicon = require 'static-favicon'
+logger = require 'morgan'
+methodOverride = require 'method-override'
+passport = require 'passport'
+BasicStrategy = require('passport-http').BasicStrategy
+routes = require './server/src/routes'
 GraphDb = require './server/src/services/graphdb'
 {log} = require './server/src/services/log'
 # Connect to DB's
@@ -12,28 +18,32 @@ setDb = (req, res, next) ->
   req.db = db
   next()
 
+env = process.env.NODE_ENV || 'development'
 # create express app
 app = express()
-app.configure ->
-  app.set 'port', process.env.PORT || 3618
-  app.set 'views', './server/views'
-  app.set 'view engine', 'jade'
-  app.use express.favicon './client/images/favicon.ico'
-  app.use express.logger 'dev'
-  app.use express.bodyParser()
-  app.use express.methodOverride()
-  app.use app.router
-  app.use require('connect-livereload')()
-  app.use express.static './public'
-  app.use express.static './build/assets'
-  app.use require('connect-assets')()
-app.configure 'development', ->
-  app.use express.errorHandler dumpExceptions: true, showStack: true
+app.set 'port', process.env.PORT || 3618
+app.set 'views', './server/views'
+app.set 'view engine', 'jade'
+app.use favicon './public/images/favicon.ico'
+app.use logger 'dev'
+app.use bodyParser()
+app.use methodOverride()
+passport.use new BasicStrategy (username, password, done) ->
+  if username == 'admin' and password == 'aapkop' then return done null, {username}
+  return done null, false
+passport.serializeUser (user, done) -> done null, user
+passport.deserializeUser (user, done) -> done null, user
+
+app.use passport.initialize()
+# app.use require('connect-livereload')()
+app.use express.static './public'
+app.use express.static './build/assets'
+app.use require('connect-assets')()
 
 # set up routes
 # read http://info.apigee.com/Portals/62317/docs/web%20api.pdf before adding routes
 app.get '/', routes.index
-app.all '/calculations*', express.basicAuth 'admin','aapkop'
+app.all '/calculations*',  passport.authenticate 'basic'
 app.get '/calculations', routes.calculations
 app.get '/objects', setDb, routes.objects
 app.get '/relationships', setDb, routes.relationships
