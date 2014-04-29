@@ -2,7 +2,7 @@ window.EditCtrl = ['$scope', '$http', ($scope, $http) ->
     @sys = arbor.ParticleSystem 100, 800, 0.01, true  # create the system with sensible repulsion/stiffness/friction
     @sys.renderer = new window.GraphRenderer "#graphCanvas" # our newly created renderer will have its .init() method called shortly by sys...
     # call the rest api endpoint to get the data
-    $http.get('/graphData/arbor').success (data) =>
+    $http.get('/data/arbor').success (data) =>
       # get the nodes from the server
       $scope.data = data
       @sys.graft data
